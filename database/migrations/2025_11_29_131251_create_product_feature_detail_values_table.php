@@ -16,7 +16,11 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained();
             $table->foreignId('category_feature_id')->constrained();
             $table->foreignId('category_feature_detail_id')->constrained();
-            $table->foreignId('category_feature_detail_value_id')->constrained();
+            $table->foreignId('category_feature_detail_value_id')
+                ->constrained('category_feature_detail_values', 'id')
+                ->onDelete('cascade')
+                ->name('category_feature_detail_values');
+
             $table->timestamps();
         });
     }
