@@ -22,7 +22,10 @@
 
 <!--  BEGIN NAVBAR  -->
 <div class="header-container container-xxl">
-    <livewire:admin.layout.header>
+{{--    <livewire:admin.layout.header>--}}
+
+
+    @include('livewire.admin.layout.header')
 </div>
 <!--  END NAVBAR  -->
 

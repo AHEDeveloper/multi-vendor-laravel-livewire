@@ -26,9 +26,9 @@
         </div>
         <div class="shadow-bottom"></div>
         <ul class="list-unstyled menu-categories" id="accordionExample">
-            {{--داشبورد--}}
-            <li class="menu">
-                <a href="#dashboard" data-bs-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+            {{--داشبرد --}}
+            <li class="menu active">
+                <a href="{{route('admin.dashboard.index')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <span>داشبرد</span>
                     </div>
@@ -64,7 +64,7 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="apps" data-bs-parent="#accordionExample">
                     <li>
-                        <a href="#"> لیست محصول ها </a>
+                        <a href="{{route('admin.product.index')}}"> لیست محصول ها </a>
                     </li>
                     <li>
                         <a href="#"> ساخت محصول </a>
@@ -330,7 +330,7 @@
                             </path>
                             <polygon points="12 15 17 21 7 21 12 15"></polygon>
                         </svg>
-                        <span>درگاه های پرداخت سایت</span>
+                        <span>درگاه های پرداخت </span>
                     </div>
                 </a>
             </li>
