@@ -67,7 +67,7 @@
                         <a href="{{route('admin.product.index')}}"> لیست محصول ها </a>
                     </li>
                     <li>
-                        <a href="#"> ساخت محصول </a>
+                        <a href="{{route('admin.product.create')}}"> ساخت محصول </a>
                     </li>
                 </ul>
             </li>

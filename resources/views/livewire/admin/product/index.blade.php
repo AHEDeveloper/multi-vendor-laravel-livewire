@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/admin/src/plugins/css/dark/table/datatable/dt-global_style.css">
 @endpush
 <div class="widget-content widget-content-area br-8">
-    <div class="alert alert-light-success alert-dismissible fade show border-0 mb-4" role="alert">
+    <div class="alert alert-light-success alert-dismissible fade show border-0" role="alert">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><svg> ... </svg>
         </button>محصول جدید با موفیقت ساخته شد</button>
     </div>

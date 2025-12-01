@@ -32,3 +32,4 @@
 <link href="/admin/src/assets/css/dark/elements/custom-pagination.css" rel="stylesheet" type="text/css">
 
 @stack('productLinks')
+@stack('productCreateLinks')

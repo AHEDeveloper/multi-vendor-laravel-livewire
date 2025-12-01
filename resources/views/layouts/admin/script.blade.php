@@ -10,6 +10,8 @@
 <script src="/admin/src/assets/js/scrollspyNav.js"></script>
 <script src="/admin/src/plugins/src/sweetalerts2/sweetalerts2.min.js"></script>
 <script src="/admin/src/plugins/src/sweetalerts2/custom-sweetalert.js"></script>
+@stack('productCreateJs')
+
 
 <script>
     window.addEventListener('success', function(event) {
