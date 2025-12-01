@@ -3,14 +3,14 @@
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h4>ساخت کشور</h4>
+                    <h4>ساخت استان</h4>
                 </div>
             </div>
         </div>
         <div class="widget-content widget-content-area">
             <form wire:submit="submit(Object.fromEntries(new FormData($event.target)))">
                 <div class="form-group mb-4">
-                    <label for="formGroupExampleInput">نام کشور</label>
+                    <label for="formGroupExampleInput">نام استان</label>
                     <input type="text" class="form-control" id="formGroupExampleInput" wire:model="name" name="name" placeholder="نام کشور خود را وارد کنید">
                     @error('name')
                     <div wire:loading.remove class="alert alert-light-danger alert-dismissible fade show border-0 mb-4 mt-2" role="alert">
@@ -20,6 +20,10 @@
                     @enderror
                 </div>
                 <button class="btn btn-info mb-2 me-4" type="submit"> ذخیره</button>
+                <select class="form-control">
+                    <option>ss</option>
+                </select>
+
             </form>
         </div>
     </div>

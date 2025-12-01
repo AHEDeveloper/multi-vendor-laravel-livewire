@@ -26,35 +26,15 @@
         </div>
         <div class="shadow-bottom"></div>
         <ul class="list-unstyled menu-categories" id="accordionExample">
-            <li class="menu active">
+            {{--داشبورد--}}
+            <li class="menu">
                 <a href="#dashboard" data-bs-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                     <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                             stroke-linejoin="round" class="feather feather-home">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>
-                        <span>Dashboard</span>
-                    </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                             stroke-linejoin="round" class="feather feather-chevron-right">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
+                        <span>داشبرد</span>
                     </div>
                 </a>
-{{--                show--}}
-                <ul class="collapse submenu list-unstyled " id="dashboard" data-bs-parent="#accordionExample">
-                    <li>
-                        <a href="./index.html"> Analytics </a>
-                    </li>
-                    <li class="active">
-                        <a href="./index2.html"> Sales </a>
-                    </li>
-                </ul>
             </li>
+            {{--محصول--}}
             <li class="menu">
                 <a href="#apps" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
@@ -72,7 +52,7 @@
                             <line x1="1" y1="9" x2="4" y2="9"></line>
                             <line x1="1" y1="14" x2="4" y2="14"></line>
                         </svg>
-                        <span>Apps</span>
+                        <span>محصولات</span>
                     </div>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -84,107 +64,220 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="apps" data-bs-parent="#accordionExample">
                     <li>
-                        <a href="./app-calendar.html"> Calendar </a>
+                        <a href="#"> لیست محصول ها </a>
                     </li>
                     <li>
-                        <a href="./app-chat.html"> Chat </a>
-                    </li>
-                    <li>
-                        <a href="./app-mailbox.html"> Mailbox </a>
-                    </li>
-                    <li>
-                        <a href="./app-todoList.html"> Todo List </a>
-                    </li>
-                    <li>
-                        <a href="./app-notes.html"> Notes </a>
-                    </li>
-                    <li>
-                        <a href="./app-scrumboard.html"> Scrumboard </a>
-                    </li>
-                    <li>
-                        <a href="./app-contacts.html"> Contacts </a>
-                    </li>
-                    <li>
-                        <a href="#invoice" data-bs-toggle="collapse" aria-expanded="false"
-                           class="dropdown-toggle collapsed">Invoice
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                 stroke-linejoin="round" class="feather feather-chevron-right">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="collapse list-unstyled sub-submenu" id="invoice" data-bs-parent="#apps">
-                            <li>
-                                <a href="./app-invoice-list.html"> List </a>
-                            </li>
-                            <li>
-                                <a href="./app-invoice-preview.html"> Preview </a>
-                            </li>
-                            <li>
-                                <a href="./app-invoice-add.html"> Add </a>
-                            </li>
-                            <li>
-                                <a href="./app-invoice-edit.html"> Edit </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#ecommerce" data-bs-toggle="collapse" aria-expanded="false"
-                           class="dropdown-toggle collapsed">Ecommerce
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                 stroke-linejoin="round" class="feather feather-chevron-right">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="collapse list-unstyled sub-submenu" id="ecommerce" data-bs-parent="#apps">
-                            <li>
-                                <a href="./app-ecommerce-product-shop.html"> Shop </a>
-                            </li>
-                            <li>
-                                <a href="./app-ecommerce-product.html"> Product </a>
-                            </li>
-                            <li>
-                                <a href="./app-ecommerce-product-list.html"> List </a>
-                            </li>
-                            <li>
-                                <a href="./app-ecommerce-product-add.html"> Create </a>
-                            </li>
-                            <li>
-                                <a href="./app-ecommerce-product-edit.html"> Edit </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="#blog" data-bs-toggle="collapse" aria-expanded="false"
-                           class="dropdown-toggle collapsed">Blog
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                 stroke-linejoin="round" class="feather feather-chevron-right">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </a>
-                        <ul class="collapse list-unstyled sub-submenu" id="blog" data-bs-parent="#apps">
-                            <li>
-                                <a href="./app-blog-grid.html"> Grid </a>
-                            </li>
-                            <li>
-                                <a href="./app-blog-list.html"> List </a>
-                            </li>
-                            <li>
-                                <a href="./app-blog-post.html"> Post </a>
-                            </li>
-                            <li>
-                                <a href="./app-blog-create.html"> Create </a>
-                            </li>
-                            <li>
-                                <a href="./app-blog-edit.html"> Edit </a>
-                            </li>
-                        </ul>
+                        <a href="#"> ساخت محصول </a>
                     </li>
                 </ul>
             </li>
+            {{--دسته بندی--}}
+            <li class="menu">
+                <a href="#" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
+                        <span>دسته بندی</span>
+                    </div>
+                </a>
+            </li>
+            {{--مگا منو--}}
+            <li class="menu">
+                <a href="#Menu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-cpu">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="9" y="9" width="6" height="6"></rect>
+                            <line x1="9" y1="1" x2="9" y2="4"></line>
+                            <line x1="15" y1="1" x2="15" y2="4"></line>
+                            <line x1="9" y1="20" x2="9" y2="23"></line>
+                            <line x1="15" y1="20" x2="15" y2="23"></line>
+                            <line x1="20" y1="9" x2="23" y2="9"></line>
+                            <line x1="20" y1="14" x2="23" y2="14"></line>
+                            <line x1="1" y1="9" x2="4" y2="9"></line>
+                            <line x1="1" y1="14" x2="4" y2="14"></line>
+                        </svg>
+                        <span>مگا منو</span>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-chevron-right">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="Menu" data-bs-parent="#accordionExample">
+                    <li>
+                        <a href="#"> موبایل ها </a>
+                    </li>
+                </ul>
+            </li>
+            {{--وبلاگ--}}
+            <li class="menu">
+                <a href="#weblog" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-cpu">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="9" y="9" width="6" height="6"></rect>
+                            <line x1="9" y1="1" x2="9" y2="4"></line>
+                            <line x1="15" y1="1" x2="15" y2="4"></line>
+                            <line x1="9" y1="20" x2="9" y2="23"></line>
+                            <line x1="15" y1="20" x2="15" y2="23"></line>
+                            <line x1="20" y1="9" x2="23" y2="9"></line>
+                            <line x1="20" y1="14" x2="23" y2="14"></line>
+                            <line x1="1" y1="9" x2="4" y2="9"></line>
+                            <line x1="1" y1="14" x2="4" y2="14"></line>
+                        </svg>
+                        <span>وبلاگ</span>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-chevron-right">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="weblog" data-bs-parent="#accordionExample">
+                    <li>
+                        <a href="#">لیست وبلاگ ها</a>
+                    </li>
+                    <li>
+                        <a href="#">ساخت وبلاگ</a>
+                    </li>
+                </ul>
+            </li>
+            {{--کاربران--}}
+            <li class="menu">
+                <a href="#users" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-cpu">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="9" y="9" width="6" height="6"></rect>
+                            <line x1="9" y1="1" x2="9" y2="4"></line>
+                            <line x1="15" y1="1" x2="15" y2="4"></line>
+                            <line x1="9" y1="20" x2="9" y2="23"></line>
+                            <line x1="15" y1="20" x2="15" y2="23"></line>
+                            <line x1="20" y1="9" x2="23" y2="9"></line>
+                            <line x1="20" y1="14" x2="23" y2="14"></line>
+                            <line x1="1" y1="9" x2="4" y2="9"></line>
+                            <line x1="1" y1="14" x2="4" y2="14"></line>
+                        </svg>
+                        <span>کاربران</span>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-chevron-right">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="users" data-bs-parent="#accordionExample">
+                    <li>
+                        <a href="#">ادمین ها</a>
+                    </li>
+                    <li>
+                        <a href="#">فروشنده ها</a>
+                    </li>
+                    <li>
+                        <a href="#">کابران سایت</a>
+                    </li>
+                </ul>
+            </li>
+            {{-- سفارش ها --}}
+            <li class="menu">
+                <a href="#orders" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-zap">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                        <span>سفارشات</span>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-chevron-right">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="orders" data-bs-parent="#accordionExample">
+                    <li>
+                        <a class="badge badge-light-warning" href="#?status=all"> کل
+                            سفارشات </a>
+                    </li>
+                    <li>
+                        <a class="badge badge-light-secondary" href="#?status=pending">
+                            Pending </a>
+                    </li>
+                    <li>
+                        <a class="badge badge-light-info" href="#?status=processing">
+                            Processing </a>
+                    </li>
+                    <li>
+                        <a class="badge badge-light-success" href="#?status=completed">
+                            Completed </a>
+                    </li>
+                    <li>
+                        <a class="badge badge-light-danger" href="#?status=cancelled">
+                            Cancelled </a>
+                    </li>
+
+                </ul>
+            </li>
+            {{-- تراکنش ها --}}
+            <li class="menu">
+                <a href="#orders" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-zap">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                        <span>تراکنش ها</span>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-chevron-right">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="orders" data-bs-parent="#accordionExample">
+                    <li>
+                        <a class="badge badge-light-warning" href="#?status=all"> کل
+                            سفارشات </a>
+                    </li>
+                    <li>
+                        <a class="badge badge-light-secondary" href="#?status=pending">
+                            Pending </a>
+                    </li>
+                    <li>
+                        <a class="badge badge-light-info" href="#?status=processing">
+                            Processing </a>
+                    </li>
+                    <li>
+                        <a class="badge badge-light-success" href="#?status=completed">
+                            Completed </a>
+                    </li>
+                    <li>
+                        <a class="badge badge-light-danger" href="#?status=cancelled">
+                            Cancelled </a>
+                    </li>
+
+                </ul>
+            </li>
+            {{--کشور--}}
             <li class="menu">
                 <a href="{{route('admin.country.index')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
@@ -192,6 +285,70 @@
                         <span>کشور</span>
                     </div>
                 </a>
+            </li>
+            {{--استان--}}
+            <li class="menu">
+                <a href="#" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
+                        <span>استان</span>
+                    </div>
+                </a>
+            </li>
+            {{--شهر--}}
+            <li class="menu">
+                <a href="#" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
+                        <span>شهر</span>
+                    </div>
+                </a>
+            </li>
+            {{-- پیک های فرستنده --}}
+            <li class="menu">
+                <a href="#" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-airplay">
+                            <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1">
+                            </path>
+                            <polygon points="12 15 17 21 7 21 12 15"></polygon>
+                        </svg>
+                        <span>پیک های فرستنده</span>
+                    </div>
+                </a>
+            </li>
+            {{-- درگاه های پرداخت سایت --}}
+            <li class="menu">
+                <a href="#" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-airplay">
+                            <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1">
+                            </path>
+                            <polygon points="12 15 17 21 7 21 12 15"></polygon>
+                        </svg>
+                        <span>درگاه های پرداخت سایت</span>
+                    </div>
+                </a>
+            </li>
+            {{-- مدیریت اسلایدر --}}
+            <li class="menu">
+                <a href="#" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-airplay">
+                            <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1">
+                            </path>
+                            <polygon points="12 15 17 21 7 21 12 15"></polygon>
+                        </svg>
+                        <span>مدیدریت Slide ها</span>
+                    </div>
+                </a>
+            </li>
             </li>
         </ul>
 
