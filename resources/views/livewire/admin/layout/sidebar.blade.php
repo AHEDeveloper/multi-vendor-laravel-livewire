@@ -110,7 +110,7 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="Menu" data-bs-parent="#accordionExample">
                     <li>
-                        <a href="#"> موبایل ها </a>
+                        <a href="{{route('admin.menu.index')}}">دسته ها منو</a>
                     </li>
                 </ul>
             </li>
@@ -236,7 +236,7 @@
             </li>
             {{-- تراکنش ها --}}
             <li class="menu">
-                <a href="#orders" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <a href="#payment" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -253,7 +253,7 @@
                         </svg>
                     </div>
                 </a>
-                <ul class="collapse submenu list-unstyled" id="orders" data-bs-parent="#accordionExample">
+                <ul class="collapse submenu list-unstyled" id="payment" data-bs-parent="#accordionExample">
                     <li>
                         <a class="badge badge-light-warning" href="#?status=all"> کل
                             سفارشات </a>
