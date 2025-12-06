@@ -11,7 +11,7 @@
             <form wire:submit="submit(Object.fromEntries(new FormData($event.target)))">
                 <div class="form-group mb-4">
                     <label for="formGroupExampleInput">نام کشور</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" wire:model="name" name="name" placeholder="نام کشور خود را وارد کنید">
+                    <input type="text" class="form-control" id="formGroupExampleInput" wire:model="name" name="name" >
                     @error('name')
                     <div wire:loading.remove class="alert alert-light-danger alert-dismissible fade show border-0 mb-4 mt-2" role="alert">
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><svg> ... </svg></button>

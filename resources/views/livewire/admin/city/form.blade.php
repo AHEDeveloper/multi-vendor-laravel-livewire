@@ -3,14 +3,14 @@
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h4>ساخت استان</h4>
+                    <h4>ساخت شهر</h4>
                 </div>
             </div>
         </div>
         <div class="widget-content widget-content-area">
             <form wire:submit="submit(Object.fromEntries(new FormData($event.target)))">
                 <div class="form-group mb-4">
-                    <label for="formGroupExampleInput">نام استان</label>
+                    <label for="formGroupExampleInput">نام شهر</label>
                     <input type="text" class="form-control" id="formGroupExampleInput" wire:model="name" name="name">
                     @error('name')
                     <div wire:loading.remove class="alert alert-light-danger alert-dismissible fade show border-0 mb-4 mt-2" role="alert">
@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="col-xxl-12 col-md-6 mb-4">
-                    <label for="country">کشور</label>
+                    <label for="country">استان</label>
                     <select class="form-select" id="country">
                         <option value="">سامسونگ</option>
                     </select>

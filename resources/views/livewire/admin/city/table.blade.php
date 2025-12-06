@@ -3,7 +3,7 @@
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h4>جدل مدیریت استان</h4>
+                    <h4>جدل مدیریت شهر</h4>
                 </div>
             </div>
         </div>
@@ -14,24 +14,24 @@
                     <thead>
                     <tr>
                         <th scope="col">ردیف</th>
-                        <th scope="col">نام استان</th>
+                        <th scope="col">نام شهر</th>
                         <th class="text-center" scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($states as $state)
+                    @foreach($citys as $city)
                         <tr>
                             <td>
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <h6 class="mb-0">{{$loop->iteration + $states->firstItem() -1}}</h6>
+                                        <h6 class="mb-0">{{$loop->iteration + $citys->firstItem() -1}}</h6>
                                     </div>
                                 </div>
                             </td>
                             <td>
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <h6 class="mb-0">{{$state->name}}</h6>
+                                        <h6 class="mb-0">{{$city->name}}</h6>
                                     </div>
                                 </div>
                             </td>
@@ -39,7 +39,7 @@
                                 <div class="action-btns">
                                     <a href="javascript:void(0);" class="action-btn btn-edit bs-tooltip me-2"
                                        data-toggle="tooltip" data-placement="top" title=""
-                                       wire:click="edit({{$state->id}})"
+                                       wire:click="edit({{$city->id}})"
                                        data-bs-original-title="Edit">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -50,7 +50,7 @@
                                     </a>
                                     <a href="javascript:void(0);" class="action-btn btn-delete bs-tooltip"
                                        data-toggle="tooltip" data-placement="top" title=""
-                                       wire:click="delete({{$state->id}})"
+                                       wire:click="delete({{$city->id}})"
                                        wire:confirm="شما از این کار اطمینان دارید؟"
                                        data-bs-original-title="Delete">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -70,7 +70,7 @@
                     @endforeach
                     </tbody>
                 </table>
-                {{$states->links('layouts.admin.pagination')}}
+                {{$citys->links('layouts.admin.pagination')}}
             </div>
 
         </div>

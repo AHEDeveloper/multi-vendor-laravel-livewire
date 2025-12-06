@@ -1,3 +1,6 @@
 <div>
-    {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
+    <div class="row">
+        @include('livewire.admin.state.form')
+        @include('livewire.admin.state.table')
+    </div>
 </div>
