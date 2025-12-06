@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Slide extends Model
+class Slider extends Model
 {
     //
 }

@@ -22,6 +22,7 @@ use \App\Livewire\Admin\Order\Detail as OrderDetail;
 use \App\Livewire\Admin\DeliveryMethod\Index as DeliveryMethodIndex;
 use \App\Livewire\Admin\PaymentMethod\Index as PaymentMethodIndex;
 use \App\Livewire\Admin\Coupon\Index as CouponIndex;
+use \App\Livewire\Admin\Slide\Index as SlideIndex;
 
 
 Route::get('/', function () {
@@ -55,3 +56,4 @@ Route::get('admin/detail',OrderDetail::class)->name('admin.order.detail');
 Route::get('admin/delivery',DeliveryMethodIndex::class)->name('admin.delivery.index');
 Route::get('admin/payment',PaymentMethodIndex::class)->name('admin.payment.index');
 Route::get('admin/coupon',CouponIndex::class)->name('admin.coupon.index');
+Route::get('admin/slide',SlideIndex::class)->name('admin.slide.index');
