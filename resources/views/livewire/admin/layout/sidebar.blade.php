@@ -184,7 +184,7 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="users" data-bs-parent="#accordionExample">
                     <li>
-                        <a href="#">ادمین ها</a>
+                        <a href="{{route('admin.admin-user.index')}}">ادمین ها</a>
                     </li>
                     <li>
                         <a href="#">فروشنده ها</a>

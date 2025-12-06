@@ -13,6 +13,7 @@ use \App\Livewire\Admin\MegaMenu\Value as MegaMenuValue;
 use \App\Livewire\Admin\Weblog\Index as WeblogIndex;
 use \App\Livewire\Admin\Weblog\Create as WeblogCreate;
 use \App\Livewire\Admin\Weblog\Category as WeblogCategory;
+use \App\Livewire\Admin\AdminUser\Index as AdminIndex;
 
 
 Route::get('/', function () {
@@ -36,3 +37,5 @@ Route::get('/admin/menu/category/{feature}/value',MegaMenuValue::class)->name('a
 Route::get('admin/weblog',WeblogIndex::class)->name('admin.weblog.index');
 Route::get('admin/weblog/create',WeblogCreate::class)->name('admin.weblog.create');
 Route::get('admin/weblog/category',WeblogCategory::class)->name('admin.weblog.category');
+
+Route::get('admin/admin-user',AdminIndex::class)->name('admin.admin-user.index');
