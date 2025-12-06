@@ -85,8 +85,8 @@
                         </div>
                         <div class="">
                             <label for="formGroupExampleInput">فعال/غیر فعال</label>
-                            <input class="form-check-input me-1" type="checkbox" wire:model="expires_at" name="expires_at" checked>
-                            @error('expires_at')
+                            <input class="form-check-input me-1" type="checkbox" wire:model="is_active" name="is_active" checked>
+                            @error('is_active')
                             <div wire:loading.remove class="alert alert-light-danger alert-dismissible fade show border-0 mb-4 mt-2" role="alert">
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><svg> ... </svg></button>
                                 <strong>خطا!</strong>{{$message}}</button>
