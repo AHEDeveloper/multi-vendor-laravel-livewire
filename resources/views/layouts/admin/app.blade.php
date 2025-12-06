@@ -22,7 +22,7 @@
 
 <!--  BEGIN NAVBAR  -->
 <div class="header-container container-xxl">
-{{--    <livewire:admin.layout.header>--}}
+    {{--    <livewire:admin.layout.header>--}}
 
 
     @include('livewire.admin.layout.header')
@@ -30,7 +30,7 @@
 <!--  END NAVBAR  -->
 
 <!--  BEGIN MAIN CONTAINER  -->
-<div class="main-container " id="container">
+<div class="main-container" id="container">
 
     <div class="overlay"></div>
     <div class="search-overlay"></div>
@@ -183,12 +183,9 @@
                 </div>
 
             </div>
-            <!--  BEGIN FOOTER  -->
-            <livewire:admin.footer.index>
 
-            <!--  END CONTENT AREA  -->
         </div>
-        <!--  END CONTENT AREA  -->
+
 
 </div>
 
