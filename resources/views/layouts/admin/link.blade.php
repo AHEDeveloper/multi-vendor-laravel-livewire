@@ -33,3 +33,4 @@
 
 @stack('productLinks')
 @stack('productCreateLinks')
+@stack('OrderDetailLinks')

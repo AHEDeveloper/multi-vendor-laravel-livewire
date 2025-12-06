@@ -212,7 +212,7 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="orders" data-bs-parent="#accordionExample">
                     <li>
-                        <a class="badge badge-light-warning" href="#?status=all"> کل
+                        <a class="badge badge-light-warning" href="{{route('admin.order.index')}}?status=all"> کل
                             سفارشات </a>
                     </li>
                     <li>

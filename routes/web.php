@@ -15,6 +15,8 @@ use \App\Livewire\Admin\Weblog\Create as WeblogCreate;
 use \App\Livewire\Admin\Weblog\Category as WeblogCategory;
 use \App\Livewire\Admin\AdminUser\Index as AdminIndex;
 use \App\Livewire\Admin\Seller\Index as SellerIndex;
+use \App\Livewire\Admin\Order\Index as OrderIndex;
+use \App\Livewire\Admin\Order\Detail as OrderDetail;
 
 
 Route::get('/', function () {
@@ -41,3 +43,5 @@ Route::get('admin/weblog/category',WeblogCategory::class)->name('admin.weblog.ca
 
 Route::get('admin/admin-user',AdminIndex::class)->name('admin.admin-user.index');
 Route::get('admin/seller',SellerIndex::class)->name('admin.seller.index');
+Route::get('admin/order',OrderIndex::class)->name('admin.order.index');
+Route::get('admin/detail',OrderDetail::class)->name('admin.order.detail');
