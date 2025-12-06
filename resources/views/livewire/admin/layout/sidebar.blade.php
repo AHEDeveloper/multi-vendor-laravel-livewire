@@ -187,10 +187,7 @@
                         <a href="{{route('admin.admin-user.index')}}">ادمین ها</a>
                     </li>
                     <li>
-                        <a href="#">فروشنده ها</a>
-                    </li>
-                    <li>
-                        <a href="#">کابران سایت</a>
+                        <a href="{{route('admin.seller.index')}}">فروشنده ها</a>
                     </li>
                 </ul>
             </li>
