@@ -22,9 +22,18 @@
 
                 <div class="col-xxl-12 col-md-6 mb-4">
                     <label for="country">کشور</label>
-                    <select class="form-select" id="country">
-                        <option value="">سامسونگ</option>
+                    <select class="form-select" id="country" name="country" wire:model="country">
+                        <option value="">یک کشور انتخاب کن</option>
+                       @foreach($countrys as $country)
+                            <option value="{{$country->id}}">{{$country->name}}</option>
+                       @endforeach
                     </select>
+                    @error('country')
+                    <div wire:loading.remove class="alert alert-light-danger alert-dismissible fade show border-0 mb-4 mt-2" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><svg> ... </svg></button>
+                        <strong>خطا!</strong>{{$message}}</button>
+                    </div>
+                    @enderror
                 </div>
 
                 <button class="btn btn-info mb-2 me-4 mt-2" type="submit"> ذخیره</button>

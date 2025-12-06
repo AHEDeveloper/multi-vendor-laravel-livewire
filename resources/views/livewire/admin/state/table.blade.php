@@ -15,6 +15,7 @@
                     <tr>
                         <th scope="col">ردیف</th>
                         <th scope="col">نام استان</th>
+                        <th scope="col">کشور </th>
                         <th class="text-center" scope="col"></th>
                     </tr>
                     </thead>
@@ -32,6 +33,13 @@
                                 <div class="media">
                                     <div class="media-body align-self-center">
                                         <h6 class="mb-0">{{$state->name}}</h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="media">
+                                    <div class="media-body align-self-center">
+                                        <h6 class="mb-0">{{$state->country->name}}</h6>
                                     </div>
                                 </div>
                             </td>
