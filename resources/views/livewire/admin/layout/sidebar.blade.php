@@ -144,10 +144,13 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="weblog" data-bs-parent="#accordionExample">
                     <li>
-                        <a href="#">لیست وبلاگ ها</a>
+                        <a href="{{route('admin.weblog.index')}}">لیست وبلاگ ها</a>
                     </li>
                     <li>
-                        <a href="#">ساخت وبلاگ</a>
+                        <a href="{{route('admin.weblog.create')}}">ساخت وبلاگ</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.weblog.category')}}">دسته بندی وبلاگ</a>
                     </li>
                 </ul>
             </li>
