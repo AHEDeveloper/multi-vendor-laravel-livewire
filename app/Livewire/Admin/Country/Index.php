@@ -3,7 +3,10 @@
 namespace App\Livewire\Admin\Country;
 
 use App\Models\Country;
-use Illuminate\Support\Facades\Validator;
+
+
+use App\Repository\admin\Country_State_City\CountryStateCityAdminRepositoryInterface;
+use App\services\admin\validation\serviceCountryStateCity;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -12,23 +15,16 @@ class Index extends Component
     use WithPagination;
     public $name;
     public $countryId;
-
-    public function submit($formData)
+    private $repository;
+    public function boot(CountryStateCityAdminRepositoryInterface $repository)
     {
-        $validate = Validator::make($formData, [
-            'name' => 'required|max:50'
-        ], [
-            'name.required' => 'نام کشور ضرروری هست',
-            'name.max' => 'لظفا کمتر از 50 کاراکتر استفاده کنید'
-        ]);
-        $validate->validate();
-        Country::query()->updateOrCreate(
-            [
-                'id' => $this->countryId
-            ],
-            [
-            'name' => $formData['name']
-            ]);
+        $this->repository = $repository;
+    }
+
+    public function submit($formData,serviceCountryStateCity $serviceCountry)
+    {
+        $serviceCountry->countryValidation($formData)->validate();
+        $this->repository->submitCountry($formData,$this->countryId);
         $this->dispatch('success','عملیات با موفقیت انجام شد');
         $this->reset('name');
         $this->resetValidation();

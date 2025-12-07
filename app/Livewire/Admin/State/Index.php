@@ -4,6 +4,10 @@ namespace App\Livewire\Admin\State;
 
 use App\Models\Country;
 use App\Models\State;
+
+
+use App\Repository\admin\Country_State_City\CountryStateCityAdminRepositoryInterface;
+use App\services\admin\validation\serviceCountryStateCity;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -15,36 +19,22 @@ class Index extends Component
     public $stateId;
     public $name;
     public $country;
+    private $repository;
+
+    public function boot(CountryStateCityAdminRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
     public function mount()
     {
         $this->countrys = Country::query()->select('id','name')->get();
     }
 
-    public function submit($formData)
+    public function submit($formData,serviceCountryStateCity $serviceState)
     {
-        $validator = Validator::make($formData,[
-            'name' => 'required|min:2|max:30|unique:states,name',
-            'country' => 'required|exists:countries,id|string'
-        ],[
-            '*.required' => 'این فیلد ضرروری هست!!',
-            '*.min' => 'لطفا بیشتر از 2 کارکتر وارد کنید!!',
-            '*.max' => 'لطفا کمتر از 30 کاراکتر وارد کنید!!',
-            '*.string' => 'مقدار وارد شده غیر مجازه!!',
-            'name.unique' => 'این نام قبلا استفاده شده',
-            '*.exists' => 'این فیلد ضرروری هست!!',
 
-        ]);
-        $validator->validate();
-
-        State::query()->updateOrCreate(
-            [
-                'id' => $this->stateId
-            ],
-            [
-                'name' => $formData['name'],
-                'country_id' => $formData['country']
-            ]
-        );
+        $serviceState->stateValidation($formData)->validate();
+        $this->repository->submitState($formData,$this->stateId);
         $this->dispatch('success','عملیات با موفقیت انجام شد');
         $this->reset('name','country');
         $this->resetValidation();
