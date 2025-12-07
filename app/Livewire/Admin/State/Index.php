@@ -23,17 +23,19 @@ class Index extends Component
     public function submit($formData)
     {
         $validator = Validator::make($formData,[
-            'name' => 'required|min:2|max:30',
+            'name' => 'required|min:2|max:30|unique:states,name',
             'country' => 'required|exists:countries,id|string'
         ],[
             '*.required' => 'این فیلد ضرروری هست!!',
             '*.min' => 'لطفا بیشتر از 2 کارکتر وارد کنید!!',
             '*.max' => 'لطفا کمتر از 30 کاراکتر وارد کنید!!',
             '*.string' => 'مقدار وارد شده غیر مجازه!!',
+            'name.unique' => 'این نام قبلا استفاده شده',
             '*.exists' => 'این فیلد ضرروری هست!!',
 
         ]);
         $validator->validate();
+
         State::query()->updateOrCreate(
             [
                 'id' => $this->stateId
@@ -45,6 +47,7 @@ class Index extends Component
         );
         $this->dispatch('success','عملیات با موفقیت انجام شد');
         $this->reset('name','country');
+        $this->resetValidation();
         $this->stateId = null;
     }
 
@@ -71,7 +74,9 @@ class Index extends Component
 
     public function render()
     {
-        $states = State::query()->paginate(10);
+        $states = State::query()
+            ->with('country:id,name')
+            ->paginate(10);
         return view('livewire.admin.state.index',[
             'states' => $states
         ])->layout('layouts.admin.app');
