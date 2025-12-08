@@ -15,9 +15,9 @@
                     <tr>
                         <th scope="col">ردیف</th>
                         <th scope="col">عکس</th>
-                        <th scope="col">نام کشور</th>
+                        <th scope="col">نام</th>
                         <th scope="col">دسته بندی</th>
-                        <th scope="col">ویژگی</th>
+                        <th class="text-center" scope="col">ویژگی</th>
                         <th class="text-center" scope="col"></th>
                     </tr>
                     </thead>
@@ -27,7 +27,18 @@
                             <td>
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <h6 class="mb-0">{{$loop->iteration + $countries->firstItem() -1}}</h6>
+                                        <h6 class="mb-0">{{$loop->iteration + $categorys->firstItem() -1}}</h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="media">
+                                    <div class="media-body align-self-center">
+                                        <h6 class="mb-0">
+                                            @if($category->image)
+                                                <img src="/categorys/{{$category->id}}/small/{{$category->image->path}}" width="100px" height="110px">
+                                            @endif
+                                        </h6>
                                     </div>
                                 </div>
                             </td>
@@ -41,14 +52,20 @@
                             <td>
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <h6 class="mb-0">{{$category->name}}</h6>
+                                        <h6 class="mb-0">
+                                            @if($category->parent)
+                                                {{$category->parent->name}}
+                                            @endif
+                                        </h6>
                                     </div>
                                 </div>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <h6 class="mb-0">{{$category->name}}</h6>
+                                        <h6 class="mb-0">
+                                            <a class="btn btn-primary mb-2 me-4">ویژگی</a>
+                                        </h6>
                                     </div>
                                 </div>
                             </td>

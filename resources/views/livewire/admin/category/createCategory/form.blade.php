@@ -25,26 +25,67 @@
                 </div>
 
                 <div class="form-group mb-4">
-                    <label for="gender">فروشنده</label>
-                    <select class="form-select" id="gender">
-                        <option value="">امیر</option>
+                    <label for="gender">دسته والد</label>
+                    <select class="form-select" id="gender" wire:model="parent" name="parent">
+                        <option value="">لطفا یک دسته بندی انتخاب کنید:</option>
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
                     </select>
+                    @error('parent')
+                    <div wire:loading.remove
+                         class="alert alert-light-danger alert-dismissible fade show border-0 mb-4 mt-2" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <svg> ...</svg>
+                        </button>
+                        <strong>خطا!</strong>{{$message}}</button>
+                    </div>
+                    @enderror
                 </div>
 
                 <div class="form-group mb-4">
                     <label for="product-images">اپلود عکس</label>
                     <div class="field-wrapper">
-                        <input class="form-control" type="file" multiple>
+                        <input class="form-control" type="file" wire:model.live="photo">
+                        @error('photo')
+                        <div wire:loading.remove class="alert alert-light-danger alert-dismissible fade show border-0 mb-4 mt-2" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                <svg> ...</svg>
+                            </button>
+                            <strong>خطا!</strong>{{$message}}</button>
+                        </div>
+                        @enderror
                     </div>
                 </div>
 
-                <div class="d-flex flex-wrap">
-                    <div class="item w-25 m-2 ">
-                        <img src="" class="w-100 rounded">
+                <div class="form-group mb-4">
+                    <div class="d-flex flex-wrap">
+                        <div class="item w-25 m-2 ">
+                            @if($photo)
+                                @if(in_array($photo->getMimeType(),['image/jpg','image/png','image/jpeg','image/webp','image/gif']))
+                                    <img src="{{$photo->temporaryURL()}}" class="w-100 rounded">
+                                @endif
+                            @endif
+                        </div>
                     </div>
                 </div>
 
-                <button class="btn btn-info mb-2 me-4" type="submit"> ذخیره</button>
+                @if(@$categoryEdit->image)
+                    <div class="form-group mb-4">
+                        <div class="d-flex flex-wrap">
+                            <div class="item w-25 m-2 ">
+                                <label for="product-images">عکس موجود</label>
+
+                                <img src="/categorys/{{$categoryEdit->id}}/small/{{$categoryEdit->image->path}}" class="w-100 rounded">
+
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+
+
+                <button class="btn btn-info mb-2 me-4" type="submit">ذخیره</button>
 
             </form>
         </div>

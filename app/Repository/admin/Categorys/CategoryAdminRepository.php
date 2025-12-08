@@ -1,0 +1,85 @@
+<?php
+
+namespace App\Repository\admin\Categorys;
+
+use App\Models\Category;
+use App\Models\CategoryImage;
+use App\Services\admin\resizeImage\ServiceImageCategory;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+
+class CategoryAdminRepository implements CategoryAdminRepositoryInterface
+{
+    public function submit($formData, $categoryId, $photo)
+    {
+        DB::transaction(function () use ($formData, $categoryId, $photo) {
+            $category = $this->submitCategory($formData, $categoryId);
+            $this->saveImage($photo, $category->id);
+            $this->webFormatImageCategory($photo, $category->id);
+        });
+    }
+
+    public function submitCategory($formData, $categoryId)
+    {
+        return Category::query()->updateOrCreate(
+            [
+                'id' => $categoryId
+            ],
+            [
+                'name' => $formData['name'],
+                'category_id' => $formData['parent']
+            ]
+        );
+    }
+
+    public function saveImage($photo, $categoryId)
+    {
+        if ($photo) {
+            $path = pathinfo($photo->hashName(), PATHINFO_FILENAME) . '.webp';
+            CategoryImage::query()->create([
+                'path' => $path,
+                'category_id' => $categoryId
+            ]);
+        }
+    }
+
+    public function webFormatImageCategory($photo, $categoryId)
+    {
+        if ($photo) {
+            $serviceImageCategory = new ServiceImageCategory();
+            $serviceImageCategory->resizeImage($photo, $categoryId, 100, 100, 'small');
+            $serviceImageCategory->resizeImage($photo, $categoryId, 400, 400, 'medium');
+            $serviceImageCategory->resizeImage($photo, $categoryId, 800, 800, 'large');
+        }
+    }
+
+    public function edit($category_id)
+    {
+         return Category::query()
+            ->with('image')
+            ->where('id', $category_id)->first();
+    }
+
+    public function methodDeleteForEdit($categoryId)
+    {
+        $category = Category::query()->where('id',$categoryId)
+            ->with('image')
+            ->first();
+        CategoryImage::query()->where('category_id', $category->id)->delete();
+        \Illuminate\Support\Facades\File::delete(public_path('categorys/' . $category->id . '/' . 'small/' . $category->image->path));
+        \Illuminate\Support\Facades\File::delete(public_path('categorys/' . $category->id . '/' . 'medium/' . $category->image->path));
+        \Illuminate\Support\Facades\File::delete(public_path('categorys/' . $category->id . '/' . 'large/' . $category->image->path));
+    }
+
+    public function deleteCategory($category_id)
+    {
+        $category = Category::query()->where('id',$category_id)->first();
+        if ($category)
+        {
+            CategoryImage::query()->where('category_id',$category->id)->delete();
+            File::deleteDirectory('categorys/'.$category->id);
+            $category->delete();
+        }
+    }
+
+}
