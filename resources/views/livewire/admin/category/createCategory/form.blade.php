@@ -33,8 +33,7 @@
                         @endforeach
                     </select>
                     @error('parent')
-                    <div wire:loading.remove
-                         class="alert alert-light-danger alert-dismissible fade show border-0 mb-4 mt-2" role="alert">
+                    <div wire:loading.remove class="alert alert-light-danger alert-dismissible fade show border-0 mb-4 mt-2" role="alert">
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                             <svg> ...</svg>
                         </button>
@@ -43,20 +42,8 @@
                     @enderror
                 </div>
 
-                <div class="form-group mb-4">
-                    <label for="product-images">اپلود عکس</label>
-                    <div class="field-wrapper">
-                        <input class="form-control" type="file" wire:model.live="photo">
-                        @error('photo')
-                        <div wire:loading.remove class="alert alert-light-danger alert-dismissible fade show border-0 mb-4 mt-2" role="alert">
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                                <svg> ...</svg>
-                            </button>
-                            <strong>خطا!</strong>{{$message}}</button>
-                        </div>
-                        @enderror
-                    </div>
-                </div>
+                @include('livewire.admin.category.createCategory.uploadFileImage')
+
 
                 <div class="form-group mb-4">
                     <div class="d-flex flex-wrap">
@@ -75,9 +62,7 @@
                         <div class="d-flex flex-wrap">
                             <div class="item w-25 m-2 ">
                                 <label for="product-images">عکس موجود</label>
-
                                 <img src="/categorys/{{$categoryEdit->id}}/small/{{$categoryEdit->image->path}}" class="w-100 rounded">
-
                             </div>
                         </div>
                     </div>

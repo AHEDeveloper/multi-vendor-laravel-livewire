@@ -3,14 +3,8 @@
 namespace App\Livewire\Admin\Category;
 
 use App\Models\Category;
-use App\Models\CategoryImage;
 use App\Repository\admin\Categorys\CategoryAdminRepositoryInterface;
-use App\Services\admin\resizeImage\ServiceImageCategory;
 use App\Services\admin\validation\ServiceCategory;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Validator;
-use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Gd\Driver;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
@@ -45,7 +39,7 @@ class Index extends Component
         }
         $formData['photo'] = $this->photo;
         $service->categoryValidation($formData,$this->categoryId)->validate();
-        $this->categoryEdit($this->categoryId);
+        $this->deleteImageEdit($this->categoryId);
         $this->repository->submit($formData, $this->categoryId, $this->photo);
         $this->dispatch('success', 'عملیات با موفقیت انجام شد');
         $this->reset('name', 'parent', 'photo');
@@ -55,7 +49,7 @@ class Index extends Component
 
     }
 
-    public function categoryEdit($categoryId)
+    public function deleteImageEdit($categoryId)
     {
         if ($categoryId && $this->photo)
         {
@@ -85,7 +79,6 @@ class Index extends Component
             ->with('parent', 'image')
             ->latest()
             ->paginate(10);
-//        dd($categorys);
         return view('livewire.admin.category.createCategory.index', [
             'categorys' => $categorys
         ])->layout('layouts.admin.app');

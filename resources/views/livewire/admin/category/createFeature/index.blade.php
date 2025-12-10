@@ -1,6 +1,6 @@
 <div>
     <div class="row">
-       @include('livewire.admin.categoryFeature.form')
-       @include('livewire.admin.categoryFeature.table')
+       @include('livewire.admin.category.createFeature.form')
+       @include('livewire.admin.category.createFeature.table')
     </div>
 </div>

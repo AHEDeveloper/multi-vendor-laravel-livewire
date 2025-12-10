@@ -64,7 +64,7 @@
                                 <div class="media">
                                     <div class="media-body align-self-center">
                                         <h6 class="mb-0">
-                                            <a class="btn btn-primary mb-2 me-4">ویژگی</a>
+                                            <a href="{{ route('admin.feature.index',$category->id) }}" class="btn btn-primary mb-2 me-4">ویژگی</a>
                                         </h6>
                                     </div>
                                 </div>

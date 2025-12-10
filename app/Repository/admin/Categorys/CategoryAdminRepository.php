@@ -77,7 +77,7 @@ class CategoryAdminRepository implements CategoryAdminRepositoryInterface
         if ($category)
         {
             CategoryImage::query()->where('category_id',$category->id)->delete();
-            File::deleteDirectory('categorys/'.$category->id);
+            File::deleteDirectory(public_path('categorys/' . $category->id));
             $category->delete();
         }
     }
