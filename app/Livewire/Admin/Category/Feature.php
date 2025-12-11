@@ -31,7 +31,7 @@ class Feature extends Component
     public function submit($formData,ServiceCategory $serviceFeature)
     {
         $categoryId = $this->category->id;
-        $serviceFeature->categoryValidation($formData,$this->featureId)->validate();
+        $serviceFeature->featureValidation($formData,$this->featureId)->validate();
         $this->repository->submitFeature($formData,$categoryId,$this->featureId);
         $this->reset('name');
         $this->resetValidation();

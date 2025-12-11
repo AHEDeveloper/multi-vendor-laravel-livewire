@@ -4,6 +4,7 @@ namespace App\Repository\admin\Categorys;
 
 use App\Models\Category;
 use App\Models\CategoryFeature;
+use App\Models\CategoryFeatureDetail;
 use App\Models\CategoryImage;
 use App\Services\admin\resizeImage\ServiceImageCategory;
 use Illuminate\Support\Facades\DB;
@@ -82,7 +83,7 @@ class CategoryAdminRepository implements CategoryAdminRepositoryInterface
             $category->delete();
         }
     }
-
+    //CategoryFeature
     public function submitFeature($formData,$categoryId,$featureId)
     {
         CategoryFeature::query()->updateOrCreate(
@@ -100,5 +101,22 @@ class CategoryAdminRepository implements CategoryAdminRepositoryInterface
     {
        return CategoryFeature::query()->where('id',$feature_id)->first();
     }
+    //CategoryFeatureDetail
+    public function submitDetail($formData,$featureId,$detailId)
+    {
+        CategoryFeatureDetail::query()->updateOrCreate(
+            [
+                'id' => $detailId
+            ],
+            [
+                'name' => $formData['name'],
+                'category_feature_id' => $featureId
+            ]
+        );
+    }
 
+    public function firstDetailMethod($detail_id)
+    {
+       return  CategoryFeatureDetail::query()->where('id',$detail_id)->first();
+    }
 }

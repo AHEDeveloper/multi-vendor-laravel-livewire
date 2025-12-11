@@ -26,8 +26,20 @@ class ServiceCategory
 
     public function featureValidation($formData,$featureId)
     {
-        Validator::make($formData,[
+        return Validator::make($formData,[
             'name' => ['required','min:2','max:30',Rule::unique('category_features','name')->ignore($featureId)]
+        ],[
+            'name.required' => 'این فیلد ضرروری هست!',
+            'name.min' => 'لطفا بیشتر از 2 کاراکتر وارد کنید',
+            'name.max' => 'لطفا بیشتر از 30 کاراکتر وارد کنید',
+            'name.unique' => 'این نام تکراری هست'
+        ]);
+    }
+
+    public function detailValidation($formData,$detailId)
+    {
+        return Validator::make($formData,[
+            'name' => ['required','min:2','max:30',Rule::unique('category_feature_details','name')->ignore($detailId)]
         ],[
             'name.required' => 'این فیلد ضرروری هست!',
             'name.min' => 'لطفا بیشتر از 2 کاراکتر وارد کنید',

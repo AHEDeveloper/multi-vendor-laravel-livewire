@@ -12,7 +12,7 @@ class Value extends Component
     public function render()
     {
         $values = CategoryFeatureDetailValue::query()->paginate(10);
-        return view('livewire.admin.category.value',[
+        return view('livewire.admin.category.createValue.index',[
             'values' => $values
         ])->layout('layouts.admin.app');
     }

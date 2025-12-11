@@ -36,10 +36,12 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <h6 class="mb-0">{{$detail->name}}</h6>
+                                        <h6 class="mb-0">
+                                            <a href="{{ route('admin.value.index',$detail->id) }}" class="btn btn-primary mb-2 me-4">جزییات</a>
+                                        </h6>
                                     </div>
                                 </div>
                             </td>
