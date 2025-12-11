@@ -5,6 +5,7 @@ namespace App\Repository\admin\Categorys;
 use App\Models\Category;
 use App\Models\CategoryFeature;
 use App\Models\CategoryFeatureDetail;
+use App\Models\CategoryFeatureDetailValue;
 use App\Models\CategoryImage;
 use App\Services\admin\resizeImage\ServiceImageCategory;
 use Illuminate\Support\Facades\DB;
@@ -119,4 +120,24 @@ class CategoryAdminRepository implements CategoryAdminRepositoryInterface
     {
        return  CategoryFeatureDetail::query()->where('id',$detail_id)->first();
     }
+
+    //CategoryFeatureDetailValue
+    public function submitValue($formData,$detailId,$valueId)
+    {
+        CategoryFeatureDetailValue::query()->updateOrCreate(
+            [
+                'id' => $valueId
+            ],
+            [
+                'value' => $formData['value'],
+                'category_feature_detail_id' => $detailId
+            ]
+        );
+    }
+
+    public function firstValueMethod($value_id)
+    {
+        return CategoryFeatureDetailValue::query()->where('id',$value_id)->first();
+    }
+
 }

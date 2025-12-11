@@ -18,6 +18,9 @@ interface CategoryAdminRepositoryInterface
     //CategoryFeatureDetail
     public function submitDetail($formData,$featureId,$detailId);
     public function firstDetailMethod($detail_id);
+    //CategoryFeatureDetailValue
+    public function submitValue($formData,$detailId,$valueId);
+    public function firstValueMethod($value_id);
 
 
 

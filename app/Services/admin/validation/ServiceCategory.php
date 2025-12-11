@@ -47,4 +47,14 @@ class ServiceCategory
             'name.unique' => 'این نام تکراری هست'
         ]);
     }
+    public function valueValidation($formData)
+    {
+        return Validator::make($formData,[
+            'value' => 'required|min:2|max:30'
+        ],[
+            'name.required' => 'این فیلد ضرروری هست!',
+            'name.min' => 'لطفا بیشتر از 2 کاراکتر وارد کنید',
+            'name.max' => 'لطفا بیشتر از 30 کاراکتر وارد کنید',
+        ]);
+    }
 }

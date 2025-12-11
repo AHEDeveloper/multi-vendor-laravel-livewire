@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class CategoryFeatureDetailValue extends Model
 {
     //
+    protected $guarded = [];
 }

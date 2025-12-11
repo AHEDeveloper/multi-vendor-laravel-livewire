@@ -61,7 +61,9 @@ class Feature extends Component
 
     public function render()
     {
-        $features = CategoryFeature::query()->paginate(10);
+        $features = CategoryFeature::query()
+            ->where('category_id',$this->category->id)
+            ->paginate(10);
         return view('livewire.admin.category.createFeature.index',[
             'features' => $features
         ])->layout('layouts.admin.app');
