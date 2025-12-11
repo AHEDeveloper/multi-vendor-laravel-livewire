@@ -3,6 +3,7 @@
 namespace App\Repository\admin\Categorys;
 
 use App\Models\Category;
+use App\Models\CategoryFeature;
 use App\Models\CategoryImage;
 use App\Services\admin\resizeImage\ServiceImageCategory;
 use Illuminate\Support\Facades\DB;
@@ -80,6 +81,24 @@ class CategoryAdminRepository implements CategoryAdminRepositoryInterface
             File::deleteDirectory(public_path('categorys/' . $category->id));
             $category->delete();
         }
+    }
+
+    public function submitFeature($formData,$categoryId,$featureId)
+    {
+        CategoryFeature::query()->updateOrCreate(
+            [
+                'id' => $featureId
+            ],
+            [
+                'name' => $formData['name'],
+                'category_id' => $categoryId
+            ]
+        );
+    }
+
+    public function firstFeatureMethod($feature_id)
+    {
+       return CategoryFeature::query()->where('id',$feature_id)->first();
     }
 
 }

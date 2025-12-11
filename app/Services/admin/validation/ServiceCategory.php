@@ -23,4 +23,16 @@ class ServiceCategory
             '*.mimes'    => 'لطفا از پسوندهای png, jpg, jpeg, gif, svg استفاده کنید!',
         ]);
     }
+
+    public function featureValidation($formData,$featureId)
+    {
+        Validator::make($formData,[
+            'name' => ['required','min:2','max:30',Rule::unique('category_features','name')->ignore($featureId)]
+        ],[
+            'name.required' => 'این فیلد ضرروری هست!',
+            'name.min' => 'لطفا بیشتر از 2 کاراکتر وارد کنید',
+            'name.max' => 'لطفا بیشتر از 30 کاراکتر وارد کنید',
+            'name.unique' => 'این نام تکراری هست'
+        ]);
+    }
 }

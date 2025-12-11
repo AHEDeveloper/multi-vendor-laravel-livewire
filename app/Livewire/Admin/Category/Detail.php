@@ -10,7 +10,7 @@ class Detail extends Component
     public function render()
     {
         $details = CategoryFeatureDetail::query()->paginate(10);
-        return view('livewire.admin.category.detail',[
+        return view('livewire.admin.category.createDetail.index',[
             'details' => $details
         ])->layout('layouts.admin.app');
     }
