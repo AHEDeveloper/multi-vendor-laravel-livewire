@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('shop_name');
-            $table->integer('mobile');
+            $table->string('mobile');
             $table->string('email');
             $table->string('password');
             $table->string('address');
