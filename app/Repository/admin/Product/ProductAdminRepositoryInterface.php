@@ -11,6 +11,7 @@ interface ProductAdminRepositoryInterface
     public function submitProductSeller($formData,$product);
     public function submitProductImage($photos,$product,$coverImage);
     public function resize($photos,$product);
+    public function deleteProduct($product_id);
 
 
 }

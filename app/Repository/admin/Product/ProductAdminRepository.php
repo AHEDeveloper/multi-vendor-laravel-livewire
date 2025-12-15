@@ -8,6 +8,7 @@ use App\Models\ProductSeller;
 use App\Models\SeoItem;
 use App\Trait\UploadeFile;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 
 class ProductAdminRepository implements ProductAdminRepositoryInterface
@@ -102,6 +103,43 @@ class ProductAdminRepository implements ProductAdminRepositoryInterface
             $this->uploadImageInWebFormat($photo,$product->id,100,100,'large');
         }
 
+    }
+
+    public function getProductByCode($p_code)
+    {
+        return Product::query()->where('p_code', $p_code)
+            ->with(['seoItem', 'productSeller', 'images'])
+            ->first();
+    }
+
+    public function setOldCoverImage($photoId,$productId)
+    {
+        ProductImage::query()->where('product_id', $productId)->update(['is_cover' => false]);
+        ProductImage::query()->where([
+            'id' => $photoId,
+            'product_id' => $productId,
+        ])->update(['is_cover' => true]);
+    }
+
+    public function removeOldPhoto(ProductImage $photo,$productId)
+    {
+        File::delete(public_path('/products/'.$productId.'/'.'small/'.$photo->path));
+        File::delete(public_path('/products/'.$productId.'/'.'medium/'.$photo->path));
+        File::delete(public_path('/products/'.$productId.'/'.'large/'.$photo->path));
+        $photo->delete();
+    }
+
+    public function deleteProduct($product_id)
+    {
+        $product = Product::query()->where('id',$product_id)->first();
+        if ($product)
+        {
+            SeoItem::query()->where('ref_id',$product->id)->delete();
+            ProductImage::query()->where('product_id',$product->id)->delete();
+            ProductSeller::query()->where('product_id',$product->id)->delete();
+            File::deleteDirectory(public_path('/products/' . $product->id));
+            $product->delete();
+        }
     }
 
 }

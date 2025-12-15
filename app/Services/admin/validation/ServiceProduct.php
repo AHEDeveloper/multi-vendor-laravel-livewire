@@ -12,7 +12,7 @@ class ServiceProduct
         $formData['coverImage'] = $coverImage;
         $formData['photos'] = $photos;
         return Validator::make($formData, [
-            'photos'   => 'required|array|min:1',
+//            'photos'   => 'required|array|min:1',
             'photos.*' => 'image|mimes:png,jpg,jpeg,webp,gif|max:2048',
             'name'   => ['required','min:10','max:255',Rule::unique('products', 'name')->ignore($productId)],
             'slug' => 'required|max:255',
@@ -28,11 +28,11 @@ class ServiceProduct
             'featured' => 'nullable|boolean',
             'discount_duration' => 'nullable|date',
             'seller' => 'required|exists:sellers,id',
-            'coverImage' => 'required'
+            'coverImage' => 'required',
         ], [
-            'photos.required' => 'حداقل یک تصویر الزامی است.',
-            'photos.array' => 'فرمت تصاویر ارسالی معتبر نیست.',
-            'photos.min' => 'حداقل یک تصویر انتخاب کنید.',
+//            'photos.required' => 'حداقل یک تصویر الزامی است.',
+//            'photos.array' => 'فرمت تصاویر ارسالی معتبر نیست.',
+//            'photos.min' => 'حداقل یک تصویر انتخاب کنید.',
 
             'photos.*.image' => 'هر فایل باید تصویر باشد.',
             'photos.*.mimes' => 'فرمت تصویر باید png، jpg، jpeg، webp یا gif باشد.',
@@ -77,7 +77,7 @@ class ServiceProduct
             'seller.required' => 'شناسه فروشنده الزامی است.',
             'seller.exists' => 'فروشنده انتخاب شده معتبر نیست.',
 
-            'coverImage.required' => 'یک کاور عکس لطفا انتخاب کنید'
+            'coverImage.required' => 'یک کاور عکس لطفا انتخاب کنید',
         ]);
     }
 }
