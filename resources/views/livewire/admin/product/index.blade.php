@@ -100,7 +100,7 @@
                         </td>
                         <td>
                             <div class="form-check form-check-primary">
-                                <a class="btn btn-outline-primary mb-2 me-4">ویژگی</a>
+                                <a href="{{route('admin.product.feature',$product->id)}}" class="btn btn-outline-primary mb-2 me-4">ویژگی</a>
                             </div>
                         </td>
                         <td class="text-center">

@@ -41,7 +41,7 @@ class Create extends Component
             $this->product = $product = $this->repository->getProductByCode($p_code);
             $this->populateFormData($product);
         }
-        $this->categorys = Category::query()->where('category_id', '!=', null)->get();
+        $this->categorys = Category::query()->get();
         $this->sellers = Seller::query()->get();
     }
 

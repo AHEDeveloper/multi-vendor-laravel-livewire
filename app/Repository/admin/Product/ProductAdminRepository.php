@@ -3,6 +3,7 @@
 namespace App\Repository\admin\Product;
 
 use App\Models\Product;
+use App\Models\ProductFeatureDetailValue;
 use App\Models\ProductImage;
 use App\Models\ProductSeller;
 use App\Models\SeoItem;
@@ -139,6 +140,24 @@ class ProductAdminRepository implements ProductAdminRepositoryInterface
             ProductSeller::query()->where('product_id',$product->id)->delete();
             File::deleteDirectory(public_path('/products/' . $product->id));
             $product->delete();
+        }
+    }
+
+    public function submitProductFeature($formData,$productId)
+    {
+
+        foreach ($formData as $value){
+            list($featureId,$detailId,$valueId) = explode('_',$value);
+            ProductFeatureDetailValue::query()->updateOrCreate(
+                [
+                    'product_id' => $productId,
+                    'category_feature_id' =>  $featureId,
+                    'category_feature_detail_id' => $detailId,
+                ],
+                [
+                    'category_feature_detail_value_id' => $valueId,
+                ]
+            );
         }
     }
 

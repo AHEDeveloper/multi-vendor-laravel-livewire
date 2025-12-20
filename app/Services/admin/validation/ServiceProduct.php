@@ -7,14 +7,14 @@ use Illuminate\Validation\Rule;
 
 class ServiceProduct
 {
-    public function productValidation($formData,$photos,$coverImage,$productId)
+    public function productValidation($formData, $photos, $coverImage, $productId)
     {
         $formData['coverImage'] = $coverImage;
         $formData['photos'] = $photos;
         return Validator::make($formData, [
 //            'photos'   => 'required|array|min:1',
             'photos.*' => 'image|mimes:png,jpg,jpeg,webp,gif|max:2048',
-            'name'   => ['required','min:10','max:255',Rule::unique('products', 'name')->ignore($productId)],
+            'name' => ['required', 'min:10', 'max:255', Rule::unique('products', 'name')->ignore($productId)],
             'slug' => 'required|max:255',
             'meta_title' => 'required|string|max:255',
             'meta_description' => 'required',
@@ -44,7 +44,6 @@ class ServiceProduct
             'name.unique' => 'این نام محصول قبلا استفاده شده',
 
             'slug.required' => 'نامک محصول الزامی است.',
-
             'slug.max' => 'نامک محصول نباید بیشتر از ۲۵۵ کاراکتر باشد.',
             'slug.unique' => 'نامک وارد شده قبلاً استفاده شده است.',
 
@@ -79,5 +78,36 @@ class ServiceProduct
 
             'coverImage.required' => 'یک کاور عکس لطفا انتخاب کنید',
         ]);
+    }
+
+    public function featureValidation($data)
+    {
+        return Validator::make($data, [
+
+            'featureIds' => ['required', 'array'],
+            'featureIds.*' => ['required', 'integer', 'exists:category_features,id'],
+
+            'detailIds' => ['required', 'array'],
+            'detailIds.*' => ['required', 'integer', 'exists:category_feature_details,id'],
+
+            'valueIds' => ['required', 'array'],
+            'valueIds.*' => ['required', 'string'], // اگر عدد است integer بگذار
+
+        ], [
+
+            'featureIds.required' => 'جزییات الزامی هستند.',
+            'featureIds.array' => 'فرمت جزییات نادرست است.',
+            'featureIds.*.exists' => 'جزییات انتخاب شده معتبر نیست.',
+
+            'detailIds.required' => 'جزییات الزامی هستند.',
+            'detailIds.array' => 'فرمت جزییات نادرست است.',
+            'detailIds.*.exists' => 'جزییات انتخاب شده معتبر نیست.',
+
+            'valueIds.required' => 'مقدار ویژگی الزامی است.',
+            'valueIds.array' => 'فرمت مقدار ویژگی نادرست است.',
+            'valueIds.*.required' => 'برای هر ویژگی باید مقدار انتخاب شود.',
+
+        ]);
+
     }
 }

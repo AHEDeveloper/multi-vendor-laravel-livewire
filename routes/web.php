@@ -25,6 +25,7 @@ use \App\Livewire\Admin\DeliveryMethod\Index as DeliveryMethodIndex;
 use \App\Livewire\Admin\PaymentMethod\Index as PaymentMethodIndex;
 use \App\Livewire\Admin\Coupon\Index as CouponIndex;
 use \App\Livewire\Admin\Slide\Index as SlideIndex;
+use \App\Livewire\Admin\Product\Feature as ProductFeature;
 
 
 Route::get('/', function () {
@@ -36,8 +37,10 @@ Route::get('/admin/dashboard',DashboardIndex::class)->name('admin.dashboard.inde
 Route::get('/admin/country',CountryIndex::class)->name('admin.country.index');
 Route::get('/admin/state',StateIndex::class)->name('admin.state.index');
 Route::get('/admin/city',CityIndex::class)->name('admin.city.index');
+
 Route::get('/admin/product',ProductIndex::class)->name('admin.product.index');
 Route::get('/admin/product/create',ProductCreate::class)->name('admin.product.create');
+Route::get('/admin/product/{product}/feature',ProductFeature::class)->name('admin.product.feature');
 
 Route::get('/admin/category',CategoryIndex::class)->name('admin.category.index');
 Route::get('/admin/{category}/feature',CategoryFeature::class)->name('admin.feature.index');
