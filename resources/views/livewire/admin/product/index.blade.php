@@ -95,7 +95,7 @@
                         </td>
                         <td>
                             <div class="form-check form-check-primary">
-                                <a class="btn btn-outline-warning mb-2 me-4">محتوا</a>
+                                <a href="{{route('admin.product.content',$product->id)}}" class="btn btn-outline-warning mb-2 me-4">محتوا</a>
                             </div>
                         </td>
                         <td>

@@ -11,6 +11,7 @@
 <script src="/admin/src/plugins/src/sweetalerts2/sweetalerts2.min.js"></script>
 <script src="/admin/src/plugins/src/sweetalerts2/custom-sweetalert.js"></script>
 @stack('productCreateJs')
+@stack('productContentJs')
 
 
 <script>

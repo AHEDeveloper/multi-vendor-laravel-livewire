@@ -7,6 +7,8 @@ use \App\Livewire\Admin\State\Index as StateIndex;
 use \App\Livewire\Admin\City\Index as CityIndex;
 use \App\Livewire\Admin\Product\Index as ProductIndex;
 use \App\Livewire\Admin\Product\Create as ProductCreate;
+use \App\Livewire\Admin\Product\Feature as ProductFeature;
+use \App\Livewire\Admin\Product\Content as ProductContent;
 use \App\Livewire\Admin\Category\Index as CategoryIndex;
 use \App\Livewire\Admin\Category\Feature as CategoryFeature;
 use \App\Livewire\Admin\Category\Detail as CategoryDetail;
@@ -25,7 +27,7 @@ use \App\Livewire\Admin\DeliveryMethod\Index as DeliveryMethodIndex;
 use \App\Livewire\Admin\PaymentMethod\Index as PaymentMethodIndex;
 use \App\Livewire\Admin\Coupon\Index as CouponIndex;
 use \App\Livewire\Admin\Slide\Index as SlideIndex;
-use \App\Livewire\Admin\Product\Feature as ProductFeature;
+
 
 
 Route::get('/', function () {
@@ -41,6 +43,8 @@ Route::get('/admin/city',CityIndex::class)->name('admin.city.index');
 Route::get('/admin/product',ProductIndex::class)->name('admin.product.index');
 Route::get('/admin/product/create',ProductCreate::class)->name('admin.product.create');
 Route::get('/admin/product/{product}/feature',ProductFeature::class)->name('admin.product.feature');
+Route::get('/admin/product/{product}/content',ProductContent::class)->name('admin.product.content');
+Route::post('/admin/product/{productId}/CKeditor',[\App\Livewire\Admin\Product\CKeditor::class,'upload'])->name('admin.product.ckeditor');
 
 Route::get('/admin/category',CategoryIndex::class)->name('admin.category.index');
 Route::get('/admin/{category}/feature',CategoryFeature::class)->name('admin.feature.index');
