@@ -9,6 +9,7 @@ use \App\Livewire\Admin\Product\Index as ProductIndex;
 use \App\Livewire\Admin\Product\Create as ProductCreate;
 use \App\Livewire\Admin\Product\Feature as ProductFeature;
 use \App\Livewire\Admin\Product\Content as ProductContent;
+use \App\Livewire\Admin\ProductSeller\Index as ProductSellerIndex;
 use \App\Livewire\Admin\Category\Index as CategoryIndex;
 use \App\Livewire\Admin\Category\Feature as CategoryFeature;
 use \App\Livewire\Admin\Category\Detail as CategoryDetail;
@@ -45,6 +46,7 @@ Route::get('/admin/product/create',ProductCreate::class)->name('admin.product.cr
 Route::get('/admin/product/{product}/feature',ProductFeature::class)->name('admin.product.feature');
 Route::get('/admin/product/{product}/content',ProductContent::class)->name('admin.product.content');
 Route::post('/admin/product/{productId}/CKeditor',[\App\Livewire\Admin\Product\CKeditor::class,'upload'])->name('admin.product.ckeditor');
+Route::get('/admin/product-seller',ProductSellerIndex::class)->name('admin.product-seller.index');
 
 Route::get('/admin/category',CategoryIndex::class)->name('admin.category.index');
 Route::get('/admin/{category}/feature',CategoryFeature::class)->name('admin.feature.index');

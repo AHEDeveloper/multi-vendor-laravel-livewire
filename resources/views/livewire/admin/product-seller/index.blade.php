@@ -1,6 +1,6 @@
 <div>
     <div class="row">
-       @include('livewire.admin.country.form')
-       @include('livewire.admin.country.table')
+       @include('livewire.admin.product-seller.form')
+       @include('livewire.admin.product-seller.table')
     </div>
 </div>

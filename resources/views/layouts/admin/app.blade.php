@@ -10,7 +10,7 @@
     @include('layouts.admin.link')
 </head>
 <body class=" layout-boxed">
-<!-- BEGIN LOADER -->
+
 <div id="load_screen">
     <div class="loader">
         <div class="loader-content">
@@ -18,29 +18,20 @@
         </div>
     </div>
 </div>
-<!--  END LOADER -->
 
-<!--  BEGIN NAVBAR  -->
+
 <div class="header-container container-xxl">
-    {{--    <livewire:admin.layout.header>--}}
-
-
-    @include('livewire.admin.layout.header')
+    <livewire:admin.layout.header>
 </div>
-<!--  END NAVBAR  -->
 
-<!--  BEGIN MAIN CONTAINER  -->
 <div class="main-container" id="container">
 
     <div class="overlay"></div>
     <div class="search-overlay"></div>
 
-    <!--  BEGIN SIDEBAR  -->
     <livewire:admin.layout.sidebar>
 
-        <!--  END SIDEBAR  -->
 
-        <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
 

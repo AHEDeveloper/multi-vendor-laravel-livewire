@@ -14,32 +14,68 @@
                     <thead>
                     <tr>
                         <th scope="col">ردیف</th>
-                        <th scope="col">نام کشور</th>
+                        <th scope="col">عکس</th>
+                        <th scope="col">کد محصول</th>
+                        <th scope="col">قیمت محصول</th>
+                        <th scope="col">موجودی</th>
+                        <th scope="col">فروشنده</th>
                         <th class="text-center" scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($countries as $country)
+                    @foreach($productSellers as $productSeller)
                         <tr>
                             <td>
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <h6 class="mb-0">{{$loop->iteration + $countries->firstItem() -1}}</h6>
+                                        <h6 class="mb-0">{{$loop->iteration + $productSellers->firstItem() -1}}</h6>
                                     </div>
                                 </div>
                             </td>
                             <td>
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <h6 class="mb-0">{{$country->name}}</h6>
+                                        <img src="/products/{{$productSeller->product->id}}/small/{{$productSeller->product->coverImage->path}}">
                                     </div>
                                 </div>
                             </td>
+                            <td>
+                                <div class="media">
+                                    <div class="media-body align-self-center">
+                                        <h6 class="mb-0">{{$productSeller->product->p_code}}</h6>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="media">
+                                    <div class="media-body align-self-center">
+                                        <h6 class="mb-0">{{number_format($productSeller->price)}}</h6>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="media">
+                                    <div class="media-body align-self-center">
+                                        <h6 class="mb-0">{{$productSeller->stock}}</h6>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="media">
+                                    <div class="media-body align-self-center">
+                                        <h6 class="mb-0">{{$productSeller->seller->shop_name}}</h6>
+                                    </div>
+                                </div>
+                            </td>
+
                             <td class="text-center">
                                 <div class="action-btns">
                                     <a href="javascript:void(0);" class="action-btn btn-edit bs-tooltip me-2"
                                        data-toggle="tooltip" data-placement="top" title=""
-                                       wire:click="edit({{$country->id}})"
+                                       wire:click="edit({{$productSeller->id}})"
                                        data-bs-original-title="Edit">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -50,7 +86,7 @@
                                     </a>
                                     <a href="javascript:void(0);" class="action-btn btn-delete bs-tooltip"
                                        data-toggle="tooltip" data-placement="top" title=""
-                                       wire:click="delete({{$country->id}})"
+                                       wire:click="delete({{$productSeller->id}})"
                                        wire:confirm="شما از این کار اطمینان دارید؟"
                                        data-bs-original-title="Delete">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -70,7 +106,7 @@
                     @endforeach
                     </tbody>
                 </table>
-                {{$countries->links('layouts.admin.pagination')}}
+                {{$productSellers->links('layouts.admin.pagination')}}
             </div>
 
         </div>

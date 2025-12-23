@@ -9,4 +9,13 @@ class ProductSeller extends Model
     //
     protected $guarded = [];
 
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+    public function seller()
+    {
+        return $this->belongsTo(Seller::class);
+    }
+
 }
