@@ -15,7 +15,7 @@
                     <tr>
                         <th scope="col">ردیف</th>
                         <th scope="col">نام ویژگی</th>
-                        <th scope="col">مقدار</th>
+                        <th scope="col" class="text-center">مقدار</th>
                         <th class="text-center" scope="col"></th>
                     </tr>
                     </thead>
@@ -36,10 +36,10 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <h6 class="mb-0">{{$feature->name}}</h6>
+                                        <a href="" class="btn btn-outline-primary mb-2 me-4">مقدار</a>
                                     </div>
                                 </div>
                             </td>

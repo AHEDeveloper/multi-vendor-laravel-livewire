@@ -17,5 +17,10 @@ interface MegaMenuAdminRepositoryInterface
     public function deleteMegaMenuImage($megaCategoryId);
 
     public function deleteMegaMenu($menu, $menu_id);
+
+    public function submitMegaMenuFeature($formData, $featureId, $megaCategory);
+
+    public function findFeature($feature_id);
+
 }
 

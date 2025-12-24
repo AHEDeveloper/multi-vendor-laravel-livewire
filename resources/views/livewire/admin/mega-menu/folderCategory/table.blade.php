@@ -51,7 +51,7 @@
                             <td class="text-center">
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <a href="" class="btn btn-outline-primary mb-2 me-4">ویژگی</a>
+                                        <a href="{{route('admin.menu.ّّّfeature',$menu->id)}}" class="btn btn-outline-primary mb-2 me-4">ویژگی</a>
                                     </div>
                                 </div>
                             </td>

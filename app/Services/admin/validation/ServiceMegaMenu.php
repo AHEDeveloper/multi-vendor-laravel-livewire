@@ -25,4 +25,15 @@ class ServiceMegaMenu
         ]);
     }
 
+    public function featureValidation($formData,$featureId)
+    {
+        return Validator::make($formData, [
+            'name' => ['required', 'max:200', Rule::unique('mega_menu_features','name')->ignore($featureId)],
+        ], [
+            'name.required' => 'لطفا نام دسته بندی مگا را پر کنید',
+            'name.max' => 'لطفا برای نام بیشتر از 200 کاراکتر استفاده نکنید',
+            'name.unique' => 'این نام دسته بندی قبلا استفاده شده',
+        ]);
+    }
+
 }

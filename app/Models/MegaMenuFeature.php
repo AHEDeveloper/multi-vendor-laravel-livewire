@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class MegaMenuFeature extends Model
 {
     //
+    protected $guarded = [];
 }

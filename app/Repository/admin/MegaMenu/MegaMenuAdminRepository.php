@@ -3,6 +3,7 @@
 namespace App\Repository\admin\MegaMenu;
 
 use App\Models\MegaMenuCategory;
+use App\Models\MegaMenuFeature;
 use App\Models\MegaMenuImage;
 use App\Services\admin\resizeImage\ServiceImageMegaMenu;
 use Illuminate\Support\Facades\DB;
@@ -71,6 +72,24 @@ class MegaMenuAdminRepository implements MegaMenuAdminRepositoryInterface
         MegaMenuImage::query()->where('mega_menu_category_id',$menu_id)->delete();
         File::deleteDirectory(public_path('/menus/' . $menu->id));
         $menu->delete();
+    }
+
+    public function submitMegaMenuFeature($formData,$featureId,$megaCategory)
+    {
+        MegaMenuFeature::query()->updateOrCreate(
+            [
+                'id' => $featureId
+            ],
+            [
+                'name' => $formData['name'],
+                'mega_menu_category_id' => $megaCategory->id
+            ]
+        );
+    }
+
+    public function findFeature($feature_id)
+    {
+        return MegaMenuFeature::query()->where('id', $feature_id)->first();
     }
 
 }
