@@ -4,6 +4,7 @@ namespace App\Repository\admin\Product;
 
 use App\Models\Product;
 use App\Models\ProductFeatureDetailValue;
+use App\Models\ProductFilter;
 use App\Models\ProductImage;
 use App\Models\ProductSeller;
 use App\Models\SeoItem;
@@ -159,6 +160,24 @@ class ProductAdminRepository implements ProductAdminRepositoryInterface
                 ]
             );
         }
+    }
+
+    public function submitProductFilter($formData,$valueId,$productId)
+    {
+        ProductFilter::query()->updateOrCreate(
+            [
+                'id' => $valueId
+            ],
+            [
+                'value' => $formData['value'],
+                'product_id' => $productId
+            ]
+        );
+    }
+
+    public function findProductFilter($filter_id)
+    {
+        return ProductFilter::query()->where('id',$filter_id)->first();
     }
 
 }

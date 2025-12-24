@@ -110,4 +110,14 @@ class ServiceProduct
         ]);
 
     }
+
+    public function filterValidation($formData)
+    {
+        return Validator::make($formData,[
+            'value' => 'required|max:200'
+        ],[
+            'value.required' => 'لطفا مقدار را پر کنید',
+            'value.max' => 'لطفا بیشتر از 200 کاراکتر استفاده نکنید',
+        ]);
+    }
 }

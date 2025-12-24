@@ -48,6 +48,7 @@
                     <th scope="col">دسته بندی</th>
                     <th scope="col">قیمت</th>
                     <th scope="col">موجودی</th>
+                    <th class="text-center" scope="col">فبلتر</th>
                     <th class="text-center" scope="col">محتوا</th>
                     <th class="text-center" scope="col">ویژگی</th>
                     <th class="text-center" scope="col"></th>
@@ -91,6 +92,11 @@
                         <td>
                             <div class="form-check form-check-primary">
                                 <h6>موجودی {{$product->productSeller->stock}}</h6>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check form-check-primary">
+                                <a href="{{route('admin.product.filter',$product->id)}}" class="btn btn-outline-secondary mb-2 me-4">فیلتر</a>
                             </div>
                         </td>
                         <td>
