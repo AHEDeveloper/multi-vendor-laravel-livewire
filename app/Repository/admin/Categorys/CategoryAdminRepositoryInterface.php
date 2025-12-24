@@ -9,8 +9,10 @@ interface CategoryAdminRepositoryInterface
     public function submitCategory($formData,$categoryId);
     public function saveImage($photo,$categoryId);
     public function webFormatImageCategory($photo,$categoryId);
-    public function edit($category_id);
+    public function fineCategory($category_id);
     public function methodDeleteForEdit($categoryId);
+    public function deleteCategory($category);
+
     //CategoryFeature
     public function submitFeature($formData,$categoryId,$featureId);
     public function firstFeatureMethod($feature_id);

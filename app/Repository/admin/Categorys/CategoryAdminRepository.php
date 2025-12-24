@@ -56,7 +56,7 @@ class CategoryAdminRepository implements CategoryAdminRepositoryInterface
         }
     }
 
-    public function edit($category_id)
+    public function fineCategory($category_id)
     {
          return Category::query()
             ->with('image')
@@ -74,15 +74,11 @@ class CategoryAdminRepository implements CategoryAdminRepositoryInterface
         \Illuminate\Support\Facades\File::delete(public_path('categorys/' . $category->id . '/' . 'large/' . $category->image->path));
     }
 
-    public function deleteCategory($category_id)
+    public function deleteCategory($category)
     {
-        $category = Category::query()->where('id',$category_id)->first();
-        if ($category)
-        {
-            CategoryImage::query()->where('category_id',$category->id)->delete();
-            File::deleteDirectory(public_path('categorys/' . $category->id));
-            $category->delete();
-        }
+        CategoryImage::query()->where('category_id',$category->id)->delete();
+        File::deleteDirectory(public_path('categorys/' . $category->id));
+        $category->delete();
     }
     //CategoryFeature
     public function submitFeature($formData,$categoryId,$featureId)
