@@ -16,7 +16,7 @@
                         <th scope="col">ردیف</th>
                         <th scope="col">عکس</th>
                         <th scope="col">نام منو</th>
-                        <th scope="col">ویژگی</th>
+                        <th scope="col" class="text-center">ویژگی</th>
                         <th class="text-center" scope="col"></th>
                     </tr>
                     </thead>
@@ -33,7 +33,11 @@
                             <td>
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <h6 class="mb-0">{{$menu->name}}</h6>
+                                        @if($menu->image)
+                                            <img src="/menus/{{$menu->id}}/small/{{$menu->image->path}}">
+                                        @else
+                                            <h6>بدون کاور</h6>
+                                        @endif
                                     </div>
                                 </div>
                             </td>
@@ -44,10 +48,10 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <h6 class="mb-0">{{$menu->name}}</h6>
+                                        <a href="" class="btn btn-outline-primary mb-2 me-4">ویژگی</a>
                                     </div>
                                 </div>
                             </td>

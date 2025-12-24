@@ -19,24 +19,32 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                             <svg> ...</svg>
                         </button>
-                        <strong>خطا!</strong>{{$message}}</button>
-                    </div>
-                    @enderror
+                        <strong>خطا!</strong>{{$message}}</button></div>@enderror
                 </div>
+
+                @include('livewire.admin.mega-menu.folderCategory.uploadFileImage')
 
                 <div class="form-group mb-4">
-                    <label for="product-images">اپلود عکس</label>
-                    <div class="field-wrapper">
-                        <input class="form-control" type="file" multiple>
+                    <div class="d-flex flex-wrap">
+                        <div class="item w-25 m-2 ">
+                            @if($photo)
+                                @if(in_array($photo->getMimeType(),['image/jpg','image/png','image/jpeg','image/webp','image/gif']))
+                                    <img src="{{$photo->temporaryURL()}}" class="w-100 rounded">
+                                @endif
+                            @endif
+                        </div>
                     </div>
                 </div>
+                @if(@$menu->image)
+                    <div class="form-group mb-4">
+                        <div class="d-flex flex-wrap">
+                            <div class="item w-25 m-2 ">
+                                <img src="/menus/{{$menu->id}}/small/{{$menu->image->path}}" class="w-100 rounded">
 
-                <div class="d-flex flex-wrap">
-                    <div class="item w-25 m-2 ">
-                        <img src="" class="w-100 rounded">
+                            </div>
+                        </div>
                     </div>
-                </div>
-
+                @endif
                 <button class="btn btn-info mb-2 me-4" type="submit"> ذخیره</button>
 
             </form>

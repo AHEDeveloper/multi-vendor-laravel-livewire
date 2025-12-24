@@ -7,6 +7,8 @@ use App\Repository\admin\Categorys\CategoryAdminRepository;
 use App\Repository\admin\Categorys\CategoryAdminRepositoryInterface;
 use App\Repository\admin\Country_State_City\CountryStateCityAdminRepository;
 use App\Repository\admin\Country_State_City\CountryStateCityAdminRepositoryInterface;
+use App\Repository\admin\MegaMenu\MegaMenuAdminRepository;
+use App\Repository\admin\MegaMenu\MegaMenuAdminRepositoryInterface;
 use App\Repository\admin\Product\ProductAdminRepository;
 use App\Repository\admin\Product\ProductAdminRepositoryInterface;
 use App\Repository\admin\ProductSeller\ProductSellerAdminRepository;
@@ -27,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(SellerAdminRepositoryInterface::class,SellerAdminRepository::class);
         $this->app->singleton(ProductAdminRepositoryInterface::class,ProductAdminRepository::class);
         $this->app->singleton(ProductSellerAdminRepositoryInterface::class,ProductSellerAdminRepository::class);
+        $this->app->singleton(MegaMenuAdminRepositoryInterface::class,MegaMenuAdminRepository::class);
 
     }
 
