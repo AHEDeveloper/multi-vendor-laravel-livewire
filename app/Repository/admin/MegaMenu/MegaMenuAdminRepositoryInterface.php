@@ -22,5 +22,8 @@ interface MegaMenuAdminRepositoryInterface
 
     public function findFeature($feature_id);
 
+    public function submitMegaMenuValue($formData,$valueId,$featureId);
+    public function fineValue($value_id);
+
 }
 

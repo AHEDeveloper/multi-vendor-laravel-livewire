@@ -3,7 +3,10 @@
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h4>ساخت مقدار منو</h4>
+                    <h4>ساخت مقدار منو
+                    :
+                        <span style="color: grey">{{$feature->name}}</span>
+                    </h4>
                 </div>
             </div>
         </div>
@@ -11,8 +14,8 @@
             <form wire:submit="submit(Object.fromEntries(new FormData($event.target)))">
                 <div class="form-group mb-4">
                     <label for="formGroupExampleInput">نام مقدار منو</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" wire:model="name" name="name">
-                    @error('name')
+                    <input type="text" class="form-control" id="formGroupExampleInput" wire:model="value" name="value">
+                    @error('value')
                     <div wire:loading.remove class="alert alert-light-danger alert-dismissible fade show border-0 mb-4 mt-2" role="alert">
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><svg> ... </svg></button>
                         <strong>خطا!</strong>{{$message}}</button>

@@ -5,6 +5,7 @@ namespace App\Repository\admin\MegaMenu;
 use App\Models\MegaMenuCategory;
 use App\Models\MegaMenuFeature;
 use App\Models\MegaMenuImage;
+use App\Models\MegaMenuValue;
 use App\Services\admin\resizeImage\ServiceImageMegaMenu;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -90,6 +91,25 @@ class MegaMenuAdminRepository implements MegaMenuAdminRepositoryInterface
     public function findFeature($feature_id)
     {
         return MegaMenuFeature::query()->where('id', $feature_id)->first();
+    }
+
+    public function submitMegaMenuValue($formData,$valueId,$featureId)
+    {
+        MegaMenuValue::query()->updateOrCreate(
+            [
+                'id' => $valueId
+            ],
+            [
+                'name' => $formData['value'],
+                'value' => $formData['value'],
+                'mega_menu_feature_id' => $featureId
+            ]
+        );
+    }
+
+    public function fineValue($value_id)
+    {
+        return MegaMenuValue::query()->where('id',$value_id)->first();
     }
 
 }

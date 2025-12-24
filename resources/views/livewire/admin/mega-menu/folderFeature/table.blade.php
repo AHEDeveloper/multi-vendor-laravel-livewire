@@ -39,7 +39,7 @@
                             <td class="text-center">
                                 <div class="media">
                                     <div class="media-body align-self-center">
-                                        <a href="" class="btn btn-outline-primary mb-2 me-4">مقدار</a>
+                                        <a href="{{route('admin.menu.value',$feature->id)}}" class="btn btn-outline-primary mb-2 me-4">مقدار</a>
                                     </div>
                                 </div>
                             </td>
