@@ -131,7 +131,6 @@ class Create extends Component
         $this->repository->removeOldPhoto($photo,$productId);
     }
 
-
     public function render()
     {
         return view('livewire.admin.product.createProduct.index')->layout('layouts.admin.app');

@@ -9,6 +9,7 @@ use App\Models\SeoItem;
 
 use App\Repository\admin\Product\ProductAdminRepositoryInterface;
 use Illuminate\Support\Facades\File;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 

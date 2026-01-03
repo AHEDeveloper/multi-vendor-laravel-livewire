@@ -29,45 +29,45 @@ use \App\Livewire\Admin\DeliveryMethod\Index as DeliveryMethodIndex;
 use \App\Livewire\Admin\PaymentMethod\Index as PaymentMethodIndex;
 use \App\Livewire\Admin\Coupon\Index as CouponIndex;
 use \App\Livewire\Admin\Slide\Index as SlideIndex;
+use \App\Livewire\Admin\Auth\Index as AuthIndex;
 
+Route::get('admin/auth',AuthIndex::class)->name('admin.auth.login')->middleware('guest:admin');
+Route::get('admin/logout',[AuthIndex::class,'logout'])->name('admin.auth.logout')->middleware('auth:admin');
+Route::middleware('auth:admin')->group(function (){
+    Route::get('/admin/dashboard',DashboardIndex::class)->name('admin.dashboard.index');
+    Route::get('/admin/country',CountryIndex::class)->name('admin.country.index');
+    Route::get('/admin/state',StateIndex::class)->name('admin.state.index');
+    Route::get('/admin/city',CityIndex::class)->name('admin.city.index');
 
+    Route::get('/admin/product',ProductIndex::class)->name('admin.product.index');
+    Route::get('/admin/product/create',ProductCreate::class)->name('admin.product.create');
+    Route::get('/admin/product/{product}/feature',ProductFeature::class)->name('admin.product.feature');
+    Route::get('/admin/product/{product}/content',ProductContent::class)->name('admin.product.content');
+    Route::get('/admin/product/{product}/filter',ProductFilter::class)->name('admin.product.filter');
+    Route::post('/admin/product/{productId}/CKeditor',[\App\Livewire\Admin\Product\CKeditor::class,'upload'])->name('admin.product.ckeditor');
+    Route::get('/admin/product-seller',ProductSellerIndex::class)->name('admin.product-seller.index');
 
-Route::get('/', function () {
-    return view('layouts.admin.app');
+    Route::get('/admin/category',CategoryIndex::class)->name('admin.category.index');
+    Route::get('/admin/{category}/feature',CategoryFeature::class)->name('admin.feature.index');
+    Route::get('/admin/category/{feature}/detail',CategoryDetail::class)->name('admin.detail.index');
+    Route::get('/admin/category/feature/{detail}/value',CategoryValue::class)->name('admin.value.index');
+
+    Route::get('/admin/menu/category',MegaMenuIndex::class)->name('admin.menu.index');
+    Route::get('/admin/menu/{category}/feature',MegaMenuFeature::class)->name('admin.menu.ّّّfeature');
+    Route::get('/admin/menu/category/{feature}/value',MegaMenuValue::class)->name('admin.menu.value');
+
+    Route::get('admin/weblog',WeblogIndex::class)->name('admin.weblog.index');
+    Route::get('admin/weblog/create',WeblogCreate::class)->name('admin.weblog.create');
+    Route::get('admin/weblog/category',WeblogCategory::class)->name('admin.weblog.category');
+
+    Route::get('admin/admin-user',AdminIndex::class)->name('admin.admin-user.index');
+    Route::get('admin/seller',SellerIndex::class)->name('admin.seller.index');
+    Route::get('admin/order',OrderIndex::class)->name('admin.order.index');
+    Route::get('admin/detail',OrderDetail::class)->name('admin.order.detail');
+    Route::get('admin/delivery',DeliveryMethodIndex::class)->name('admin.delivery.index');
+    Route::get('admin/payment',PaymentMethodIndex::class)->name('admin.payment.index');
+    Route::get('admin/coupon',CouponIndex::class)->name('admin.coupon.index');
+    Route::get('admin/slide',SlideIndex::class)->name('admin.slide.index');
+
 });
 
-
-Route::get('/admin/dashboard',DashboardIndex::class)->name('admin.dashboard.index');
-Route::get('/admin/country',CountryIndex::class)->name('admin.country.index');
-Route::get('/admin/state',StateIndex::class)->name('admin.state.index');
-Route::get('/admin/city',CityIndex::class)->name('admin.city.index');
-
-Route::get('/admin/product',ProductIndex::class)->name('admin.product.index');
-Route::get('/admin/product/create',ProductCreate::class)->name('admin.product.create');
-Route::get('/admin/product/{product}/feature',ProductFeature::class)->name('admin.product.feature');
-Route::get('/admin/product/{product}/content',ProductContent::class)->name('admin.product.content');
-Route::get('/admin/product/{product}/filter',ProductFilter::class)->name('admin.product.filter');
-Route::post('/admin/product/{productId}/CKeditor',[\App\Livewire\Admin\Product\CKeditor::class,'upload'])->name('admin.product.ckeditor');
-Route::get('/admin/product-seller',ProductSellerIndex::class)->name('admin.product-seller.index');
-
-Route::get('/admin/category',CategoryIndex::class)->name('admin.category.index');
-Route::get('/admin/{category}/feature',CategoryFeature::class)->name('admin.feature.index');
-Route::get('/admin/category/{feature}/detail',CategoryDetail::class)->name('admin.detail.index');
-Route::get('/admin/category/feature/{detail}/value',CategoryValue::class)->name('admin.value.index');
-
-Route::get('/admin/menu/category',MegaMenuIndex::class)->name('admin.menu.index');
-Route::get('/admin/menu/{category}/feature',MegaMenuFeature::class)->name('admin.menu.ّّّfeature');
-Route::get('/admin/menu/category/{feature}/value',MegaMenuValue::class)->name('admin.menu.value');
-
-Route::get('admin/weblog',WeblogIndex::class)->name('admin.weblog.index');
-Route::get('admin/weblog/create',WeblogCreate::class)->name('admin.weblog.create');
-Route::get('admin/weblog/category',WeblogCategory::class)->name('admin.weblog.category');
-
-Route::get('admin/admin-user',AdminIndex::class)->name('admin.admin-user.index');
-Route::get('admin/seller',SellerIndex::class)->name('admin.seller.index');
-Route::get('admin/order',OrderIndex::class)->name('admin.order.index');
-Route::get('admin/detail',OrderDetail::class)->name('admin.order.detail');
-Route::get('admin/delivery',DeliveryMethodIndex::class)->name('admin.delivery.index');
-Route::get('admin/payment',PaymentMethodIndex::class)->name('admin.payment.index');
-Route::get('admin/coupon',CouponIndex::class)->name('admin.coupon.index');
-Route::get('admin/slide',SlideIndex::class)->name('admin.slide.index');
