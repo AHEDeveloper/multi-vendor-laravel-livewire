@@ -11,7 +11,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->redirectGuestsTo('/admin/auth');
+        $middleware->redirectGuestsTo(function () {
+            $currentPath = request()->path();
+            if (str_starts_with($currentPath, 'admin')) {
+                return route('admin.auth.login');
+            }
+        });
         $middleware->redirectUsersTo('/admin/dashboard');
     })
     ->withExceptions(function (Exceptions $exceptions) {

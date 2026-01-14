@@ -13,9 +13,9 @@ class Index extends Component
     public function submit($formData,ServiceAuth $service)
     {
         $service->authValidation($formData)->validate();
-        $test = ['email' => $formData['email'], 'password' => $formData['password']];
+        $credentials = ['email' => $formData['email'], 'password' => $formData['password']];
         $admin = Auth::guard('admin');
-        if ($admin->attempt($test)) {
+        if ($admin->attempt($credentials)) {
             return redirect(route('admin.dashboard.index'));
         } else {
             session()->flash('message', 'رمز یا ایمیل اشتباه هست دوباره سعی کنید');
