@@ -52,7 +52,7 @@
                             <line x1="1" y1="9" x2="4" y2="9"></line>
                             <line x1="1" y1="14" x2="4" y2="14"></line>
                         </svg>
-                        <span>محصولات</span>
+                        <span> محصولات</span>
                     </div>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -313,9 +313,10 @@
                     </div>
                 </a>
             </li>
-            {{-- ساخت کد تخفیف --}}
+
+            {{-- مدیریت کامنت ها --}}
             <li class="menu">
-                <a href="{{route('admin.coupon.index')}}" aria-expanded="false" class="dropdown-toggle">
+                <a href="#" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -324,7 +325,7 @@
                             </path>
                             <polygon points="12 15 17 21 7 21 12 15"></polygon>
                         </svg>
-                        <span>مدیریت کد تخفیف</span>
+                        <span> کامنت های سایت</span>
                     </div>
                 </a>
             </li>
@@ -358,6 +359,21 @@
                     </div>
                 </a>
             </li>
+            {{-- مدیریت استوری --}}
+            <li class="menu">
+                <a href="#" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-airplay">
+                            <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1">
+                            </path>
+                            <polygon points="12 15 17 21 7 21 12 15"></polygon>
+                        </svg>
+                        <span>مدیریت استوری</span>
+                    </div>
+                </a>
+            </li>
             {{-- مدیریت اسلایدر --}}
             <li class="menu">
                 <a href="{{route('admin.slide.index')}}" aria-expanded="false" class="dropdown-toggle">
@@ -369,10 +385,29 @@
                             </path>
                             <polygon points="12 15 17 21 7 21 12 15"></polygon>
                         </svg>
-                        <span>مدیریت Slide ها</span>
+                        <span>مدیریت اسلاید</span>
                     </div>
                 </a>
             </li>
+            {{-- ساخت کد تخفیف --}}
+            <li class="menu">
+                <a href="{{route('admin.coupon.index')}}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-airplay">
+                            <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1">
+                            </path>
+                            <polygon points="12 15 17 21 7 21 12 15"></polygon>
+                        </svg>
+                        <span> کد تخفیف</span>
+                    </div>
+                </a>
+            </li>
+
+
+
+
             </li>
         </ul>
 

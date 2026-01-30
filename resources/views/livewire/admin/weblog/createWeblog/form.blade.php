@@ -86,3 +86,20 @@
     </button>
 
 </div>
+@push('weblogJs')
+    <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+    <script>
+        document.addEventListener('livewire:init', () => {
+            const editor = CKEDITOR.replace('editor', {
+                {{--filebrowserUploadUrl: "{{route('admin.blog.ck-upload', ['_token' => csrf_token() ])}}",--}}
+                filebrowserUploadMethod: 'form',
+                contentsLangDirection: 'rtl',
+                height: 500,
+            })
+            editor.on('change', function (event) {
+                console.log(event.editor.getData());
+            @this.set('longDescription', event.editor.getData())
+            })
+        })
+    </script>
+@endpush

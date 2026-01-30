@@ -30,6 +30,7 @@ class Index extends Component
 
     public function render()
     {
+
         return view('livewire.admin.auth.index')->layout('layouts.admin.auth');
     }
 }

@@ -54,9 +54,9 @@ class MegaMenuAdminRepository implements MegaMenuAdminRepositoryInterface
 
     public function findMegaMenuCategory($menu_id)
     {
-        return MegaMenuCategory::query()
+        return MegaMenuCategory::query()->where('id',$menu_id)
             ->with('image')
-            ->where('id',$menu_id)->first();
+            ->first();
     }
 
     public function deleteMegaMenuImage($megaCategoryId)

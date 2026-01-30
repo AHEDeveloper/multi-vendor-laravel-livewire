@@ -44,7 +44,7 @@ class Index extends Component
 
     public function edit($menu_id)
     {
-        $this->menu = $menu = $this->repository->fineMegaMenuCategory($menu_id);
+        $this->menu = $menu = $this->repository->findMegaMenuCategory($menu_id);
         if ($menu)
         {
             $this->megaCategoryId = $menu->id;

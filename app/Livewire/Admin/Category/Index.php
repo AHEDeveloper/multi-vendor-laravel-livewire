@@ -53,7 +53,8 @@ class Index extends Component
 
     public function deleteImageEdit($categoryId)
     {
-        if ($categoryId && $this->photo) {
+        $category = $this->repository->fineCategory($categoryId);
+        if ($categoryId && $category->image != null) {
             $this->repository->methodDeleteForEdit($categoryId);
         }
     }

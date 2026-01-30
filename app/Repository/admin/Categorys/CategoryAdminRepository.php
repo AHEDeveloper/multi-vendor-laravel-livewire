@@ -65,9 +65,7 @@ class CategoryAdminRepository implements CategoryAdminRepositoryInterface
 
     public function methodDeleteForEdit($categoryId)
     {
-        $category = Category::query()->where('id',$categoryId)
-            ->with('image')
-            ->first();
+        $category = $this->fineCategory($categoryId);
         CategoryImage::query()->where('category_id', $category->id)->delete();
         \Illuminate\Support\Facades\File::delete(public_path('categorys/' . $category->id . '/' . 'small/' . $category->image->path));
         \Illuminate\Support\Facades\File::delete(public_path('categorys/' . $category->id . '/' . 'medium/' . $category->image->path));
