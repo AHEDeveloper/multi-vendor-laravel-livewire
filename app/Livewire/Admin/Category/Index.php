@@ -36,6 +36,7 @@ class Index extends Component
 
     public function submit($formData, ServiceCategory $service)
     {
+
         if ($formData['parent'] == "") {
             $formData['parent'] = null;
         }

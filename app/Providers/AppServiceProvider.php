@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 
+use App\Repository\admin\AdminUser\AdminUserAdminRepository;
+use App\Repository\admin\AdminUser\AdminUserAdminRepositoryInterface;
 use App\Repository\admin\Categorys\CategoryAdminRepository;
 use App\Repository\admin\Categorys\CategoryAdminRepositoryInterface;
 use App\Repository\admin\Country_State_City\CountryStateCityAdminRepository;
@@ -30,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(ProductAdminRepositoryInterface::class,ProductAdminRepository::class);
         $this->app->singleton(ProductSellerAdminRepositoryInterface::class,ProductSellerAdminRepository::class);
         $this->app->singleton(MegaMenuAdminRepositoryInterface::class,MegaMenuAdminRepository::class);
+        $this->app->singleton(AdminUserAdminRepositoryInterface::class,AdminUserAdminRepository::class);
 
     }
 

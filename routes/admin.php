@@ -35,7 +35,7 @@ Route::name('admin.')->group(function () {
     Route::get('/auth', AuthIndex::class)->name('auth.login')->middleware('guest:admin');
     Route::get('/logout', [AuthIndex::class, 'logout'])->name('auth.logout')->middleware('auth:admin');
     Route::middleware('auth:admin')->group(function () {
-        Route::get('/dashboard', DashboardIndex::class)->name('dashboard.index');
+        Route::get('/dashboard', DashboardIndex::class)->name('dashboard.index')->middleware(['role:super admin|product admin']);
         Route::get('/country', CountryIndex::class)->name('country.index');
         Route::get('/state', StateIndex::class)->name('state.index');
         Route::get('/city', CityIndex::class)->name('city.index');

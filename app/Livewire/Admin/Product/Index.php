@@ -32,7 +32,6 @@ class Index extends Component
                 $query->where('name','like','%'.$this->search.'%');
             })
             ->paginate($this->result);
-//        dd($products);
         return view('livewire.admin.product.index',[
             'products' => $products
         ])->layout('layouts.admin.app');
